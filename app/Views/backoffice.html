@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriPlan — Back Office</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bo-page">
+
+  <div class="bo-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="bo-sidebar">
+      <div class="bo-logo">
+        <span class="logo-dot sm"></span>
+        <span class="bo-logo-text">NutriPlan</span>
+        <span class="bo-admin-badge">Admin</span>
+      </div>
+
+      <nav class="bo-nav">
+        <p class="bo-nav-label">Principal</p>
+        <a href="backoffice.html" class="bo-nav-link active" data-section="dashboard">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Tableau de bord
+        </a>
+        <p class="bo-nav-label">Gestion</p>
+        <a href="#" class="bo-nav-link" onclick="showSection('regimes')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Régimes
+        </a>
+        <a href="#" class="bo-nav-link" onclick="showSection('activites')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Activités sportives
+        </a>
+        <a href="#" class="bo-nav-link" onclick="showSection('codes')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M7 12h.01M17 12h.01"/></svg>
+          Codes portefeuille
+        </a>
+        <a href="#" class="bo-nav-link" onclick="showSection('utilisateurs')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Utilisateurs
+        </a>
+        <p class="bo-nav-label">Système</p>
+        <a href="#" class="bo-nav-link" onclick="showSection('parametres')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Paramètres
+        </a>
+      </nav>
+
+      <div class="bo-sidebar-footer">
+        <a href="login.html" class="bo-logout">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Déconnexion
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="bo-main">
+
+      <!-- TOP BAR -->
+      <div class="bo-topbar">
+        <div>
+          <h1 class="bo-page-title" id="sectionTitle">Tableau de bord</h1>
+          <p class="bo-page-sub" id="sectionSub">Vue d'ensemble de l'application</p>
+        </div>
+        <div class="bo-topbar-right">
+          <span class="bo-admin-name">Admin NutriPlan</span>
+        </div>
+      </div>
+
+      <!-- DASHBOARD SECTION -->
+      <div id="sec-dashboard">
+        <!-- STATS -->
+        <div class="stats-cards">
+          <div class="stat-card-bo">
+            <div class="scb-icon blue">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p class="scb-val">5</p>
+              <p class="scb-lbl">Utilisateurs</p>
+            </div>
+          </div>
+          <div class="stat-card-bo">
+            <div class="scb-icon teal">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <p class="scb-val">5</p>
+              <p class="scb-lbl">Régimes actifs</p>
+            </div>
+          </div>
+          <div class="stat-card-bo">
+            <div class="scb-icon amber">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <p class="scb-val">3</p>
+              <p class="scb-lbl">Abonnés Gold</p>
+            </div>
+          </div>
+          <div class="stat-card-bo">
+            <div class="scb-icon green">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01M7 12h.01M17 12h.01"/></svg>
+            </div>
+            <div>
+              <p class="scb-val">12</p>
+              <p class="scb-lbl">Codes actifs</p>
+            </div>
+          </div>
+          <div class="stat-card-bo">
+            <div class="scb-icon blue">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <p class="scb-val">487 500</p>
+              <p class="scb-lbl">Revenus (Ar)</p>
+            </div>
+          </div>
+          <div class="stat-card-bo">
+            <div class="scb-icon teal">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="scb-val">5</p>
+              <p class="scb-lbl">Activités</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHART -->
+        <div class="card mt-24">
+          <div class="card-header-blue">
+            <h2 class="card-title-white">Inscriptions par mois</h2>
+          </div>
+          <div class="card-body">
+            <div class="bar-chart">
+              <div class="bc-bars">
+                <div class="bc-bar-wrap"><div class="bc-bar" style="height:30%"></div><span class="bc-label">Jan</span></div>
+                <div class="bc-bar-wrap"><div class="bc-bar" style="height:45%"></div><span class="bc-label">Fév</span></div>
+                <div class="bc-bar-wrap"><div class="bc-bar mid" style="height:60%"></div><span class="bc-label">Mar</span></div>
+                <div class="bc-bar-wrap"><div class="bc-bar" style="height:40%"></div><span class="bc-label">Avr</span></div>
+                <div class="bc-bar-wrap"><div class="bc-bar hi" style="height:90%"></div><span class="bc-label">Mai</span></div>
+                <div class="bc-bar-wrap"><div class="bc-bar mid" style="height:70%"></div><span class="bc-label">Jun</span></div>
+                <div class="bc-bar-wrap"><div class="bc-bar" style="height:50%"></div><span class="bc-label">Jul</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECENT CODES TABLE -->
+        <div class="card mt-16">
+          <div class="card-header-blue" style="justify-content:space-between">
+            <h2 class="card-title-white">Codes portefeuille récents</h2>
+            <button class="btn-table-action" onclick="showSection('codes')">Voir tous</button>
+          </div>
+          <div class="card-body p0">
+            <table class="data-table">
+              <thead><tr><th>Code</th><th>Montant</th><th>Statut</th><th>Utilisateur</th></tr></thead>
+              <tbody>
+                <tr><td><code>NUT-2026-A1</code></td><td>5 000 Ar</td><td><span class="badge badge-success">Disponible</span></td><td class="td-muted">—</td></tr>
+                <tr><td><code>NUT-2026-B3</code></td><td>10 000 Ar</td><td><span class="badge badge-used">Utilisé</span></td><td>Ravo Andria</td></tr>
+                <tr><td><code>NUT-2026-C7</code></td><td>5 000 Ar</td><td><span class="badge badge-success">Disponible</span></td><td class="td-muted">—</td></tr>
+                <tr><td><code>NUT-2026-D9</code></td><td>50 000 Ar</td><td><span class="badge badge-used">Utilisé</span></td><td>Jean Rakoto</td></tr>
+                <tr><td><code>NUT-2026-E2</code></td><td>10 000 Ar</td><td><span class="badge badge-success">Disponible</span></td><td class="td-muted">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- REGIMES SECTION -->
+      <div id="sec-regimes" style="display:none">
+        <div class="section-toolbar">
+          <input class="form-input search-input" type="search" placeholder="Rechercher un régime…" />
+          <button class="btn-primary-sm">+ Nouveau régime</button>
+        </div>
+        <div class="card">
+          <div class="card-body p0">
+            <table class="data-table">
+              <thead><tr><th>Nom</th><th>Viande</th><th>Poisson</th><th>Volaille</th><th>Durée</th><th>Prix</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>Régime Équilibré Marin</strong></td>
+                  <td>25%</td><td>40%</td><td>35%</td><td>30 jours</td><td>33 000 Ar</td>
+                  <td class="td-actions"><button class="btn-action-edit">Modifier</button> <button class="btn-action-del">Supprimer</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Régime Léger Actif</strong></td>
+                  <td>20%</td><td>30%</td><td>50%</td><td>14 jours</td><td>21 000 Ar</td>
+                  <td class="td-actions"><button class="btn-action-edit">Modifier</button> <button class="btn-action-del">Supprimer</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Régime Protéiné Force</strong></td>
+                  <td>50%</td><td>20%</td><td>30%</td><td>21 jours</td><td>26 000 Ar</td>
+                  <td class="td-actions"><button class="btn-action-edit">Modifier</button> <button class="btn-action-del">Supprimer</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Détox Marin Intensif</strong></td>
+                  <td>15%</td><td>60%</td><td>25%</td><td>14 jours</td><td>23 000 Ar</td>
+                  <td class="td-actions"><button class="btn-action-edit">Modifier</button> <button class="btn-action-del">Supprimer</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Équilibre Total</strong></td>
+                  <td>33%</td><td>34%</td><td>33%</td><td>30 jours</td><td>18 000 Ar</td>
+                  <td class="td-actions"><button class="btn-action-edit">Modifier</button> <button class="btn-action-del">Supprimer</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVITES SECTION -->
+      <div id="sec-activites" style="display:none">
+        <div class="section-toolbar">
+          <input class="form-input search-input" type="search" placeholder="Rechercher une activité…" />
+          <button class="btn-primary-sm">+ Nouvelle activité</button>
+        </div>
+        <div class="card">
+          <div class="card-body p0">
+            <table class="data-table">
+              <thead><tr><th>Activité</th><th>Durée (min/j)</th><th>Fréquence</th><th>Objectif</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Marche rapide</strong></td><td>30</td><td>5x/semaine</td><td>Réduction</td><td class="td-actions"><button class="btn-action-edit">Modifier</button><button class="btn-action-del">Supprimer</button></td></tr>
+                <tr><td><strong>Natation</strong></td><td>45</td><td>3x/semaine</td><td>IMC idéal</td><td class="td-actions"><button class="btn-action-edit">Modifier</button><button class="btn-action-del">Supprimer</button></td></tr>
+                <tr><td><strong>Musculation</strong></td><td>60</td><td>4x/semaine</td><td>Prise de masse</td><td class="td-actions"><button class="btn-action-edit">Modifier</button><button class="btn-action-del">Supprimer</button></td></tr>
+                <tr><td><strong>Yoga</strong></td><td>45</td><td>3x/semaine</td><td>Maintien</td><td class="td-actions"><button class="btn-action-edit">Modifier</button><button class="btn-action-del">Supprimer</button></td></tr>
+                <tr><td><strong>Vélo</strong></td><td>40</td><td>4x/semaine</td><td>Réduction</td><td class="td-actions"><button class="btn-action-edit">Modifier</button><button class="btn-action-del">Supprimer</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CODES SECTION -->
+      <div id="sec-codes" style="display:none">
+        <div class="section-toolbar">
+          <input class="form-input search-input" type="search" placeholder="Rechercher un code…" />
+          <button class="btn-primary-sm">+ Générer des codes</button>
+        </div>
+        <div class="card">
+          <div class="card-body p0">
+            <table class="data-table">
+              <thead><tr><th>Code</th><th>Montant</th><th>Statut</th><th>Utilisé par</th><th>Date</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td><code>NUT-2026-A1</code></td><td>5 000 Ar</td><td><span class="badge badge-success">Disponible</span></td><td class="td-muted">—</td><td class="td-muted">—</td><td class="td-actions"><button class="btn-action-del">Invalider</button></td></tr>
+                <tr><td><code>NUT-2026-B3</code></td><td>10 000 Ar</td><td><span class="badge badge-used">Utilisé</span></td><td>Ravo Andria</td><td class="td-muted">05/05/2026</td><td class="td-muted">—</td></tr>
+                <tr><td><code>NUT-2026-C7</code></td><td>5 000 Ar</td><td><span class="badge badge-success">Disponible</span></td><td class="td-muted">—</td><td class="td-muted">—</td><td class="td-actions"><button class="btn-action-del">Invalider</button></td></tr>
+                <tr><td><code>NUT-2026-D9</code></td><td>50 000 Ar</td><td><span class="badge badge-used">Utilisé</span></td><td>Jean Rakoto</td><td class="td-muted">28/04/2026</td><td class="td-muted">—</td></tr>
+                <tr><td><code>NUT-2026-E2</code></td><td>10 000 Ar</td><td><span class="badge badge-success">Disponible</span></td><td class="td-muted">—</td><td class="td-muted">—</td><td class="td-actions"><button class="btn-action-del">Invalider</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- UTILISATEURS SECTION -->
+      <div id="sec-utilisateurs" style="display:none">
+        <div class="section-toolbar">
+          <input class="form-input search-input" type="search" placeholder="Rechercher un utilisateur…" />
+        </div>
+        <div class="card">
+          <div class="card-body p0">
+            <table class="data-table">
+              <thead><tr><th>Nom</th><th>Email</th><th>Genre</th><th>IMC</th><th>Gold</th><th>Solde</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Ravo Andria</strong></td><td>ravo@email.com</td><td>Femme</td><td>22.4</td><td><span class="badge badge-gold-sm">★ Gold</span></td><td>35 000 Ar</td></tr>
+                <tr><td><strong>Jean Rakoto</strong></td><td>jean@email.com</td><td>Homme</td><td>27.1</td><td><span class="badge badge-gold-sm">★ Gold</span></td><td>12 000 Ar</td></tr>
+                <tr><td><strong>Marie Rabe</strong></td><td>marie@email.com</td><td>Femme</td><td>19.8</td><td class="td-muted">—</td><td>8 000 Ar</td></tr>
+                <tr><td><strong>Luc Randria</strong></td><td>luc@email.com</td><td>Homme</td><td>31.2</td><td><span class="badge badge-gold-sm">★ Gold</span></td><td>20 000 Ar</td></tr>
+                <tr><td><strong>Sophie Tiana</strong></td><td>sophie@email.com</td><td>Femme</td><td>23.5</td><td class="td-muted">—</td><td>5 000 Ar</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARAMETRES SECTION -->
+      <div id="sec-parametres" style="display:none">
+        <div class="card">
+          <div class="card-header-blue"><h2 class="card-title-white">Paramètres généraux</h2></div>
+          <div class="card-body">
+            <div class="param-grid">
+              <div class="param-item">
+                <label class="form-label">Prix option Gold (Ar)</label>
+                <input class="form-input" value="50000" />
+              </div>
+              <div class="param-item">
+                <label class="form-label">Remise Gold (%)</label>
+                <input class="form-input" value="15" />
+              </div>
+              <div class="param-item">
+                <label class="form-label">IMC normal min</label>
+                <input class="form-input" value="18.5" />
+              </div>
+              <div class="param-item">
+                <label class="form-label">IMC normal max</label>
+                <input class="form-input" value="25" />
+              </div>
+            </div>
+            <button class="btn-primary-sm mt-16">Enregistrer les paramètres</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const sections = {
+      dashboard: { title: 'Tableau de bord', sub: 'Vue d\'ensemble de l\'application' },
+      regimes: { title: 'Gestion des régimes', sub: 'CRUD — créer, lire, modifier, supprimer' },
+      activites: { title: 'Activités sportives', sub: 'Gérer les activités suggérées' },
+      codes: { title: 'Codes portefeuille', sub: 'Valider et gérer les codes de recharge' },
+      utilisateurs: { title: 'Utilisateurs', sub: 'Liste et gestion des comptes' },
+      parametres: { title: 'Paramètres', sub: 'Configuration de l\'application' },
+    };
+    function showSection(name) {
+      Object.keys(sections).forEach(k => {
+        const el = document.getElementById('sec-' + k);
+        if (el) el.style.display = (k === name) ? 'block' : 'none';
+      });
+      document.getElementById('sectionTitle').textContent = sections[name].title;
+      document.getElementById('sectionSub').textContent = sections[name].sub;
+      document.querySelectorAll('.bo-nav-link').forEach(l => l.classList.remove('active'));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriPlan — Inscription</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-split">
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <a href="index.html" class="auth-logo">
+        <span class="logo-dot"></span> NutriPlan
+      </a>
+      <div class="auth-left-content">
+        <h2 class="auth-left-title">Votre santé,<br /><em>votre programme.</em></h2>
+        <p class="auth-left-desc">Rejoignez NutriPlan et obtenez un régime alimentaire entièrement personnalisé selon vos objectifs.</p>
+        <div class="auth-left-features">
+          <div class="alf-item"><span class="alf-check">✓</span> Calcul IMC instantané</div>
+          <div class="alf-item"><span class="alf-check">✓</span> Régimes sur mesure</div>
+          <div class="alf-item"><span class="alf-check">✓</span> Export PDF inclus</div>
+          <div class="alf-item"><span class="alf-check">✓</span> Option Gold −15%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: STEP 1 -->
+    <div class="auth-right" id="step1">
+      <div class="auth-form-card">
+        <div class="auth-steps">
+          <div class="step-item active">
+            <div class="step-circle">1</div>
+            <span>Informations</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <span>Santé</span>
+          </div>
+        </div>
+
+        <h1 class="auth-form-title">Créer un compte</h1>
+        <p class="auth-form-sub">Étape 1 — Informations personnelles</p>
+
+        <form class="auth-form" onsubmit="goStep2(event)">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Prénom</label>
+              <input type="text" class="form-input" placeholder="Ravo" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nom</label>
+              <input type="text" class="form-input" placeholder="Andria" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Adresse e-mail</label>
+            <input type="email" class="form-input" placeholder="ravo@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mot de passe</label>
+            <input type="password" class="form-input" placeholder="••••••••" required />
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Genre</label>
+              <select class="form-input form-select" required>
+                <option value="">Choisir</option>
+                <option>Femme</option>
+                <option>Homme</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Âge</label>
+              <input type="number" class="form-input" placeholder="24" min="10" max="100" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary-full">Continuer →</button>
+        </form>
+
+        <p class="auth-switch">Déjà inscrit ? <a href="login.html">Se connecter</a></p>
+      </div>
+    </div>
+
+    <!-- STEP 2 (hidden initially) -->
+    <div class="auth-right hidden" id="step2">
+      <div class="auth-form-card">
+        <div class="auth-steps">
+          <div class="step-item done">
+            <div class="step-circle">✓</div>
+            <span>Informations</span>
+          </div>
+          <div class="step-line done"></div>
+          <div class="step-item active">
+            <div class="step-circle">2</div>
+            <span>Santé</span>
+          </div>
+        </div>
+
+        <h1 class="auth-form-title">Données de santé</h1>
+        <p class="auth-form-sub">Étape 2 — Taille et poids pour calculer votre IMC</p>
+
+        <form class="auth-form" action="profil.html">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Taille (cm)</label>
+              <input type="number" class="form-input" placeholder="170" min="100" max="250" id="taille" oninput="calcIMC()" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Poids (kg)</label>
+              <input type="number" class="form-input" placeholder="65" min="30" max="300" id="poids" oninput="calcIMC()" />
+            </div>
+          </div>
+
+          <!-- IMC PREVIEW -->
+          <div class="imc-preview" id="imcPreview" style="display:none">
+            <div class="imc-preview-row">
+              <div class="imc-circle-sm">
+                <span id="imcVal">--</span>
+                <small>IMC</small>
+              </div>
+              <div class="imc-info">
+                <p class="imc-status-text" id="imcStatus">—</p>
+                <div class="imc-bar-wrap">
+                  <div class="imc-bar-track">
+                    <div class="imc-bar-fill"></div>
+                    <div class="imc-bar-pin" id="imcPin"></div>
+                  </div>
+                  <div class="imc-bar-labels">
+                    <span>Maigreur</span><span>Normal</span><span>Surpoids</span><span>Obésité</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Objectif principal</label>
+            <div class="goal-select">
+              <label class="goal-option">
+                <input type="radio" name="objectif" value="augmenter" />
+                <span class="goal-card">
+                  <span class="goal-icon">↑</span>
+                  <span class="goal-text">Augmenter mon poids</span>
+                </span>
+              </label>
+              <label class="goal-option">
+                <input type="radio" name="objectif" value="ideal" checked />
+                <span class="goal-card">
+                  <span class="goal-icon">◎</span>
+                  <span class="goal-text">Atteindre l'IMC idéal</span>
+                </span>
+              </label>
+              <label class="goal-option">
+                <input type="radio" name="objectif" value="reduire" />
+                <span class="goal-card">
+                  <span class="goal-icon">↓</span>
+                  <span class="goal-text">Réduire mon poids</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary-full">Terminer l'inscription ✓</button>
+        </form>
+
+        <button class="btn-back" onclick="backStep1()">← Retour</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goStep2(e) {
+      e.preventDefault();
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+    function backStep1() {
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step1').classList.remove('hidden');
+    }
+    function calcIMC() {
+      const t = parseFloat(document.getElementById('taille').value);
+      const p = parseFloat(document.getElementById('poids').value);
+      if (!t || !p) return;
+      const imc = p / ((t / 100) ** 2);
+      document.getElementById('imcPreview').style.display = 'block';
+      document.getElementById('imcVal').textContent = imc.toFixed(1);
+      let status = '', pct = 0;
+      if (imc < 18.5) { status = 'Insuffisance pondérale'; pct = (imc / 18.5) * 25; }
+      else if (imc < 25) { status = 'Poids normal ✓'; pct = 25 + ((imc - 18.5) / 6.5) * 25; }
+      else if (imc < 30) { status = 'Surpoids'; pct = 50 + ((imc - 25) / 5) * 25; }
+      else { status = 'Obésité'; pct = Math.min(75 + ((imc - 30) / 10) * 25, 96); }
+      document.getElementById('imcStatus').textContent = status;
+      document.getElementById('imcPin').style.left = Math.min(pct, 96) + '%';
+    }
+  </script>
+</body>
+</html>
