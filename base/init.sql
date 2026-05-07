@@ -13,6 +13,7 @@ CREATE TABLE users (
     email VARCHAR(150) UNIQUE,
     password VARCHAR(255),
     genre_id INT,
+    Date_naissance Date ,
     wallet_balance DECIMAL(10,2) DEFAULT 0,
     is_gold BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

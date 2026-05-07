@@ -1,10 +1,26 @@
+<?php
+$user = $user ?? session()->get('user') ?? [];
+$sante = $sante ?? [];
+
+$displayName = trim(($user['prenom'] ?? '') . ' ' . ($user['nom'] ?? ''));
+$displayName = $displayName !== '' ? $displayName : 'Ravo Andria';
+
+$initials = strtoupper(substr((string) ($user['prenom'] ?? 'R'), 0, 1) . substr((string) ($user['nom'] ?? 'A'), 0, 1));
+$email = $user['email'] ?? 'ravo@email.com';
+$genre = $user['genre_nom'] ?? 'Femme';
+$age = $user['age'] ?? null;
+$taille = $sante['taille'] ?? null;
+$poids = $sante['poids'] ?? null;
+$imc = $user['imc'] ?? ($sante['imc'] ?? null);
+$objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NutriPlan — Mon Profil</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -13,14 +29,14 @@
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan</div>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Accueil</a></li>
-        <li><a href="regimes.html" class="nav-link">Régimes</a></li>
-        <li><a href="profil.html" class="nav-link active">Mon profil</a></li>
-        <li><a href="wallet.html" class="nav-link">Portefeuille</a></li>
+        <li><a href="<?= base_url('/') ?>" class="nav-link">Accueil</a></li>
+        <li><a href="<?= base_url('/regimes') ?>" class="nav-link">Régimes</a></li>
+        <li><a href="<?= base_url('/profil') ?>" class="nav-link active">Mon profil</a></li>
+        <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
       </ul>
       <div class="nav-actions">
-        <span class="nav-user-name">Ravo A.</span>
-        <a href="login.html" class="btn-nav-ghost">Déconnexion</a>
+        <span class="nav-user-name"><?= esc($displayName) ?></span>
+        <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
       </div>
     </div>
   </nav>
@@ -30,10 +46,10 @@
 
       <!-- PROFILE HEADER -->
       <div class="profile-header">
-        <div class="profile-avatar">RA</div>
+        <div class="profile-avatar"><?= esc($initials) ?></div>
         <div class="profile-info">
-          <h1 class="profile-name">Ravo Andria</h1>
-          <p class="profile-meta">ravo@email.com · Femme · 24 ans</p>
+          <h1 class="profile-name"><?= esc($displayName) ?></h1>
+          <p class="profile-meta"><?= esc($email) ?> · <?= esc($genre) ?> · <?= esc($age !== null ? (string) $age : '—') ?> ans</p>
           <span class="badge badge-gold">★ Option Gold active</span>
         </div>
         <a href="#" class="btn-outline-sm">Modifier le profil</a>
@@ -49,7 +65,7 @@
             </div>
             <div class="card-body">
               <div class="imc-big-circle">
-                <span class="imc-big-val">22.4</span>
+                <span class="imc-big-val"><?= esc($imc !== null ? number_format((float) $imc, 2, '.', '') : '—') ?></span>
                 <span class="imc-big-unit">kg/m²</span>
               </div>
               <div class="imc-bar-full">
@@ -65,8 +81,8 @@
                 </div>
               </div>
               <div class="imc-stats-row">
-                <div class="imc-stat"><span class="imc-stat-val">170</span><span class="imc-stat-lbl">cm</span></div>
-                <div class="imc-stat"><span class="imc-stat-val">65</span><span class="imc-stat-lbl">kg</span></div>
+                <div class="imc-stat"><span class="imc-stat-val"><?= esc($taille !== null ? (string) $taille : '—') ?></span><span class="imc-stat-lbl">cm</span></div>
+                <div class="imc-stat"><span class="imc-stat-val"><?= esc($poids !== null ? (string) $poids : '—') ?></span><span class="imc-stat-lbl">kg</span></div>
                 <div class="imc-stat"><span class="imc-stat-val"><span class="badge badge-success">Normal</span></span></div>
               </div>
             </div>
@@ -85,7 +101,7 @@
                 </div>
                 <div class="goal-chip-item selected">
                   <span class="goal-chip-icon sel">◎</span>
-                  <span class="goal-chip-text">Atteindre l'IMC idéal</span>
+                  <span class="goal-chip-text"><?= esc($objectif) ?></span>
                   <span class="goal-current">Actuel</span>
                 </div>
                 <div class="goal-chip-item">
@@ -93,7 +109,7 @@
                   <span class="goal-chip-text">Réduire son poids</span>
                 </div>
               </div>
-              <a href="regimes.html" class="btn-primary-full mt-12">Voir mes suggestions</a>
+              <a href="<?= base_url('/regimes') ?>" class="btn-primary-full mt-12">Voir mes suggestions</a>
             </div>
           </div>
         </div>
@@ -128,7 +144,7 @@
                   <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 35%</span>
                   <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande 25%</span>
                 </div>
-                <a href="regimes.html" class="btn-primary-sm mt-10">Choisir ce régime</a>
+                <a href="<?= base_url('/regimes') ?>" class="btn-primary-sm mt-10">Choisir ce régime</a>
               </div>
 
               <div class="regime-item">
@@ -152,7 +168,7 @@
                   <span><span class="macro-dot" style="background:var(--blue-200)"></span>Poisson 30%</span>
                   <span><span class="macro-dot" style="background:var(--blue-600)"></span>Viande 20%</span>
                 </div>
-                <a href="regimes.html" class="btn-outline-sm mt-10">Choisir ce régime</a>
+                <a href="<?= base_url('/regimes') ?>" class="btn-outline-sm mt-10">Choisir ce régime</a>
               </div>
 
               <div class="regime-item">
@@ -176,7 +192,7 @@
                   <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 30%</span>
                   <span><span class="macro-dot" style="background:var(--blue-100)"></span>Poisson 20%</span>
                 </div>
-                <a href="regimes.html" class="btn-outline-sm mt-10">Choisir ce régime</a>
+                <a href="<?= base_url('/regimes') ?>" class="btn-outline-sm mt-10">Choisir ce régime</a>
               </div>
 
             </div>
