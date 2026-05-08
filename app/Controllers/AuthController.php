@@ -9,6 +9,15 @@ use App\Models\GenreModel;
 
 class AuthController extends BaseController
 {
+    private function defaultGenres(): array
+    {
+        return [
+            ['id' => 1, 'nom' => 'Femme'],
+            ['id' => 2, 'nom' => 'Homme'],
+            ['id' => 3, 'nom' => 'Autre'],
+        ];
+    }
+
     private function wantsJson(): bool
     {
         return $this->request->isAJAX() || str_contains((string) $this->request->getHeaderLine('Accept'), 'application/json');
@@ -32,10 +41,13 @@ class AuthController extends BaseController
     private function getGenres(): array
     {
         try {
-            return (new GenreModel())->findAll();
+            $genres = (new GenreModel())->findAll();
+
+            return ! empty($genres) ? $genres : $this->defaultGenres();
         } catch (\Throwable $e) {
             log_message('warning', 'GenreModel error: ' . $e->getMessage());
-            return [];
+
+            return $this->defaultGenres();
         }
     }
 
@@ -141,7 +153,7 @@ class AuthController extends BaseController
             'email'          => $user['email'],
             'genre_id'       => $user['genre_id'] ?? null,
             'Date_naissance' => $user['Date_naissance'] ?? null,
-            'role'           => $user['role'] ?? 'lecteur',   // 'admin' | 'bibliothecaire' | 'lecteur'
+            'role'           => $user['role'] ?? 'lecteur',   // 'admin' 
         ]);
 
         if ($this->wantsJson()) {
@@ -190,6 +202,7 @@ class AuthController extends BaseController
             'email'          => 'required|valid_email|is_unique[users.email]',
             'date_naissance' => 'required|valid_date[Y-m-d]',
             'password'       => 'required|min_length[8]',
+            'password_confirmation' => 'required|matches[password]',
         ];
 
         $messages = [
@@ -198,6 +211,9 @@ class AuthController extends BaseController
             ],
             'password' => [
                 'min_length' => 'Le mot de passe doit contenir au moins 8 caractères.',
+            ],
+            'password_confirmation' => [
+                'matches' => 'La confirmation du mot de passe ne correspond pas.',
             ],
         ];
 
