@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NutriPlan — Portefeuille</title>
-  <link rel="stylesheet" href="style.css" />
+ <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -38,8 +38,10 @@
         <div class="wbc-content">
           <div>
             <p class="wbc-label">Solde disponible</p>
-            <p class="wbc-amount" id="solde">35 000 Ar</p>
+            <p class="wbc-amount" id="solde"><?= $wallets['montant'] ?? '0' ?> Ar</p>
             <p class="wbc-sub">Mis à jour aujourd'hui</p>
+            <p class="wbc-amount" id="user_id"><?= $wallets['user_id'] ?? '0' ?> id user actif</p>
+
           </div>
           <div class="wbc-icon">
             <svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>

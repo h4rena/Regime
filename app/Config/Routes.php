@@ -33,3 +33,7 @@ $routes->post('/inscription/sante', 'AuthController::sante');
 // Inscription — Étape 3 (choix objectif)
 $routes->get('/inscription/objectif',  'AuthController::objectifForm');
 $routes->post('/inscription/objectif', 'AuthController::objectif');
+
+
+//wallet
+$routes->get('/wallet', 'WalletController::afficheWalletUser', ['filter' => 'auth']);

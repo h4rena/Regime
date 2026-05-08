@@ -1,0 +1,1084 @@
+ERROR - 2026-05-08 08:06:11 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(35): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(176): App\Controllers\AuthController->getGenres()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#10 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#13 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(35): CodeIgniter\BaseModel->findAll()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(176): App\Controllers\AuthController->getGenres()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+ERROR - 2026-05-08 17:14:48 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:49 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:50 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:50 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:52 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:52 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:52 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:14:53 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-08 17:14:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(112): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:17:59 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/Regime/app/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/Regime/app/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /opt/lampp/htdocs/Regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/Regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/Regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/Regime/app/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/Regime/app/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+#5 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+#6 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#7 /opt/lampp/htdocs/Regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#8 /opt/lampp/htdocs/Regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/Regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#10 /opt/lampp/htdocs/Regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#11 {main}
+CRITICAL - 2026-05-08 17:17:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: GET, Route: wallet/test]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:22:16 --> Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:22:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+[Method: GET, Route: wallet/test]
+in SYSTEMPATH/Database/BaseConnection.php on line 865.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:22:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:22:16 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:25:35 --> Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:25:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+[Method: GET, Route: wallet]
+in SYSTEMPATH/Database/BaseConnection.php on line 865.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:25:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:25:35 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-08 17:25:54 --> Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:25:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+[Method: GET, Route: wallet]
+in SYSTEMPATH/Database/BaseConnection.php on line 865.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:25:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:25:54 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/WalletModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/WalletController.php(14): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:31:35 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "views/wallet.php"
+[Method: GET, Route: wallet]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/WalletController.php(21): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 17:31:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "views/wallet.php"
+[Method: GET, Route: wallet]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/WalletController.php(21): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:33:03 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:33:05 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:33:06 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:33:06 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:33:12 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:34:54 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:34:55 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:35:01 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:37:07 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:37:08 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-08 18:37:12 --> CodeIgniter\Exceptions\InvalidArgumentException: No such handler for "type". Invalid type: string
+[Method: GET, Route: wallet]
+in SYSTEMPATH/DataCaster/DataCaster.php on line 182.
+ 1 SYSTEMPATH/DataConverter/DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs()
+ 2 SYSTEMPATH/BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource()
+ 3 SYSTEMPATH/Model.php(298): CodeIgniter\BaseModel->convertToReturnType()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/WalletModel.php(70): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/WalletController.php(19): App\Models\WalletModel->getWalletUser()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\WalletController->afficheWalletUser()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
