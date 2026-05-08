@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body class="auth-page">
+  <?php
+  $errors = isset($errors) && is_array($errors) ? $errors : [];
+  $successMessage = session()->getFlashdata('success');
+  ?>
 
   <div class="auth-split">
     <div class="auth-left">
@@ -25,8 +29,8 @@
         <h1 class="auth-form-title">Connexion</h1>
         <p class="auth-form-sub">Accédez à votre espace NutriPlan</p>
 
-        <?php if (session()->getFlashdata('success')): ?>
-          <div class="alert alert-success"><?= esc(session()->getFlashdata('success')) ?></div>
+        <?php if ($successMessage): ?>
+          <div class="alert alert-success"><?= esc((string) $successMessage) ?></div>
         <?php endif; ?>
 
         <form class="auth-form" method="POST" action="<?= base_url('/login') ?>" data-ajax-form="login">
@@ -34,7 +38,7 @@
           <div class="form-group">
             <label class="form-label">Adresse e-mail</label>
             <input type="email" name="email" class="form-input" placeholder="ravo@email.com" required data-field="email" />
-            <small class="field-error" data-error-for="email"><?= esc($errors['email'] ?? '') ?></small>
+            <small class="field-error" data-error-for="email"><?= esc((string) ($errors['email'] ?? '')) ?></small>
           </div>
           <div class="form-group">
             <label class="form-label">Mot de passe</label>
@@ -42,7 +46,7 @@
               <input type="password" name="password" class="form-input" placeholder="********" required data-field="password" />
               <button type="button" class="toggle-password" data-toggle-password>Voir</button>
             </div>
-            <small class="field-error" data-error-for="password"><?= esc($errors['password'] ?? '') ?></small>
+            <small class="field-error" data-error-for="password"><?= esc((string) ($errors['password'] ?? '')) ?></small>
           </div>
           <button type="submit" class="btn-primary-full" data-submit-btn>Se connecter</button>
         </form>

@@ -8,6 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <?php
+    $currentUser = $currentUser ?? session()->get('user');
+    $imc = $imc ?? null;
+    $taille = $taille ?? null;
+    $poids = $poids ?? null;
+  ?>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -23,8 +29,12 @@
         <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="<?= base_url('/login') ?>" class="btn-nav-ghost">Connexion</a>
-        <a href="<?= base_url('/inscription') ?>" class="btn-nav">S'inscrire</a>
+        <?php if ($currentUser): ?>
+          <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
+        <?php else: ?>
+          <a href="<?= base_url('/login') ?>" class="btn-nav-ghost">Connexion</a>
+          <a href="<?= base_url('/inscription') ?>" class="btn-nav">S'inscrire</a>
+        <?php endif; ?>
       </div>
     </div>
   </nav>
@@ -47,14 +57,14 @@
           <div class="hstat-divider"></div>
           <div class="hstat"><span class="hstat-val">5+</span><span class="hstat-lbl">Activités</span></div>
           <div class="hstat-divider"></div>
-          <div class="hstat"><span class="hstat-val">Gold</span><span class="hstat-lbl">−15% remise</span></div>
+          <div class="hstat"><span class="hstat-val">Option Gold</span><span class="hstat-lbl">−15% remise</span></div>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="imc-demo-card">
+          <div class="imc-demo-card">
           <p class="idc-label">Votre IMC</p>
           <div class="idc-circle">
-            <span class="idc-val">22.4</span>
+            <span class="idc-val"><?= esc($imc !== null ? number_format((float)$imc, 2, '.', '') : '—') ?></span>
             <span class="idc-unit">kg/m²</span>
           </div>
           <div class="idc-bar">
@@ -65,7 +75,19 @@
             <span>Maigreur</span><span>Normal</span><span>Obésité</span>
           </div>
           <div class="idc-status">
-            <span class="badge badge-success">Poids normal</span>
+            <?php if ($imc !== null): ?>
+              <?php if ($imc < 18.5): ?>
+                <span class="badge">Maigreur</span>
+              <?php elseif ($imc < 25): ?>
+                <span class="badge badge-success">Poids normal</span>
+              <?php elseif ($imc < 30): ?>
+                <span class="badge">Surpoids</span>
+              <?php else: ?>
+                <span class="badge">Obésité</span>
+              <?php endif; ?>
+            <?php else: ?>
+              <span class="badge">—</span>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -100,12 +122,12 @@
           <p class="feat-desc">Régime alimentaire + activités sportives sur mesure, exportables en PDF.</p>
         </div>
         <div class="feat-card feat-card-gold">
-          <div class="gold-ribbon">GOLD</div>
+          <div class="gold-ribbon">OPTION GOLD</div>
           <div class="feat-icon-wrap gold-icon">
             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           </div>
           <h3 class="feat-title">Accès Premium</h3>
-          <p class="feat-desc">Débloquez -15% de remise sur tous les régimes avec Gold.</p>
+          <p class="feat-desc">Débloquez -15% de remise sur tous les régimes avec un paiement unique Gold.</p>
         </div>
       </div>
     </div>

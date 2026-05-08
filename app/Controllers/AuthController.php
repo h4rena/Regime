@@ -9,6 +9,15 @@ use App\Models\GenreModel;
 
 class AuthController extends BaseController
 {
+    private function defaultGenres(): array
+    {
+        return [
+            ['id' => 1, 'nom' => 'Femme'],
+            ['id' => 2, 'nom' => 'Homme'],
+            ['id' => 3, 'nom' => 'Autre'],
+        ];
+    }
+
     private function wantsJson(): bool
     {
         return $this->request->isAJAX() || str_contains((string) $this->request->getHeaderLine('Accept'), 'application/json');
@@ -32,10 +41,13 @@ class AuthController extends BaseController
     private function getGenres(): array
     {
         try {
-            return (new GenreModel())->findAll();
+            $genres = (new GenreModel())->findAll();
+
+            return ! empty($genres) ? $genres : $this->defaultGenres();
         } catch (\Throwable $e) {
             log_message('warning', 'GenreModel error: ' . $e->getMessage());
-            return [];
+
+            return $this->defaultGenres();
         }
     }
 
@@ -77,6 +89,51 @@ class AuthController extends BaseController
             'formula' => 'IMC = poids (kg) / taille² (m²)',
             'hint'    => 'Point de repere avant adaptation a votre objectif',
         ];
+    }
+
+    private function getGoldPrice(): int
+    {
+        return 50000;
+    }
+
+    private function getRoleIdByName(string $roleName): ?int
+    {
+        try {
+            $role = \Config\Database::connect()
+                ->table('role')
+                ->select('id')
+                ->where('nom', $roleName)
+                ->get()
+                ->getRowArray();
+
+            return $role ? (int) $role['id'] : null;
+        } catch (\Throwable $e) {
+            log_message('warning', 'Role lookup error: ' . $e->getMessage());
+
+            return null;
+        }
+    }
+
+    private function getRoleNameById($roleId): string
+    {
+        if ($roleId === null || $roleId === '') {
+            return 'Utilisateur';
+        }
+
+        try {
+            $role = \Config\Database::connect()
+                ->table('role')
+                ->select('nom')
+                ->where('id', (int) $roleId)
+                ->get()
+                ->getRowArray();
+
+            return (string) ($role['nom'] ?? 'Utilisateur');
+        } catch (\Throwable $e) {
+            log_message('warning', 'Role name lookup error: ' . $e->getMessage());
+
+            return 'Utilisateur';
+        }
     }
 
     // ─────────────────────────────────────────
@@ -141,7 +198,9 @@ class AuthController extends BaseController
             'email'          => $user['email'],
             'genre_id'       => $user['genre_id'] ?? null,
             'Date_naissance' => $user['Date_naissance'] ?? null,
-            'role'           => $user['role'] ?? 'lecteur',   // 'admin' | 'bibliothecaire' | 'lecteur'
+            'id_role'        => $user['id_role'] ?? null,
+            'role'           => $this->getRoleNameById($user['id_role'] ?? null),
+            'is_gold'        => (bool) ($user['is_gold'] ?? false),
         ]);
 
         if ($this->wantsJson()) {
@@ -348,6 +407,7 @@ class AuthController extends BaseController
 
         $userModel = new UserModel();
         $userId = $userModel->insert([
+            'id_role'        => $this->getRoleIdByName('Utilisateur'),
             'nom'            => $step1['nom'],
             'prenom'         => $step1['prenom'],
             'email'          => $step1['email'],
@@ -384,11 +444,64 @@ class AuthController extends BaseController
             'email'          => $step1['email'],
             'genre_id'       => $step1['genre_id'],
             'Date_naissance' => $step1['Date_naissance'],
-            'role'           => 'lecteur',
+            'id_role'        => $this->getRoleIdByName('Utilisateur'),
+            'role'           => 'Utilisateur',
+            'is_gold'        => false,
         ]);
 
         session()->remove(['inscription_step1', 'inscription_step2']);
 
         return redirect()->to('/profil')->with('success', 'Succes enregistre. Votre compte a ete cree avec succes.');
+    }
+
+    /** Active l'option Gold avec un paiement unique débité du portefeuille. */
+    public function activateGold()
+    {
+        $currentUser = session()->get('user');
+
+        if (! $currentUser || empty($currentUser['id'])) {
+            return redirect()->to('/login')->with('erreur', 'Connectez-vous pour activer l\'option Gold.');
+        }
+
+        $userModel = new UserModel();
+        $user = $userModel->find((int) $currentUser['id']);
+
+        if (! $user) {
+            return redirect()->to('/profil')->with('erreur', 'Compte introuvable.');
+        }
+
+        if (! empty($user['is_gold'])) {
+            return redirect()->to('/profil')->with('success', 'Votre option Gold est déjà active.');
+        }
+
+        $goldPrice = $this->getGoldPrice();
+        $walletBalance = (float) ($user['wallet_balance'] ?? 0);
+
+        if ($walletBalance < $goldPrice) {
+            return redirect()->to('/profil')->with('erreur', 'Solde insuffisant pour activer Gold. Rechargez votre portefeuille puis réessayez.');
+        }
+
+        $newBalance = $walletBalance - $goldPrice;
+        $db = \Config\Database::connect();
+
+        $db->transStart();
+        $userModel->update((int) $user['id'], [
+            'is_gold' => 1,
+            'wallet_balance' => $newBalance,
+        ]);
+
+        $db->table('wallet_transactions')->insert([
+            'user_id' => (int) $user['id'],
+            'montant' => $goldPrice,
+            'type'    => 'debit',
+        ]);
+        $db->transComplete();
+
+        $updatedSessionUser = $currentUser;
+        $updatedSessionUser['is_gold'] = true;
+        $updatedSessionUser['wallet_balance'] = $newBalance;
+        session()->set('user', $updatedSessionUser);
+
+        return redirect()->to('/profil')->with('success', 'Option Gold activée. Vous avez désormais 15% de remise sur tous les régimes.');
     }
 }
