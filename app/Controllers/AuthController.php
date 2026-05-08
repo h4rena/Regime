@@ -202,7 +202,6 @@ class AuthController extends BaseController
             'email'          => 'required|valid_email|is_unique[users.email]',
             'date_naissance' => 'required|valid_date[Y-m-d]',
             'password'       => 'required|min_length[8]',
-            'password_confirmation' => 'required|matches[password]',
         ];
 
         $messages = [
@@ -211,9 +210,6 @@ class AuthController extends BaseController
             ],
             'password' => [
                 'min_length' => 'Le mot de passe doit contenir au moins 8 caractères.',
-            ],
-            'password_confirmation' => [
-                'matches' => 'La confirmation du mot de passe ne correspond pas.',
             ],
         ];
 

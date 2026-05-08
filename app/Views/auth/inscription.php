@@ -92,15 +92,6 @@
             <small class="field-error" data-error-for="password"><?= esc((string) ($errors['password'] ?? '')) ?></small>
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="password_confirmation">Confirmer le mot de passe</label>
-            <div class="password-wrap">
-              <input id="password_confirmation" type="password" name="password_confirmation" class="form-input" data-field="password_confirmation" required />
-              <button type="button" class="toggle-password" data-toggle-password>Voir</button>
-            </div>
-            <small class="field-error" data-error-for="password_confirmation"><?= esc((string) ($errors['password_confirmation'] ?? '')) ?></small>
-          </div>
-
           <button type="submit" class="btn-primary-full" data-submit-btn>Suivant: Sante</button>
         </form>
 
