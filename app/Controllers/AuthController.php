@@ -96,6 +96,46 @@ class AuthController extends BaseController
         return 50000;
     }
 
+    private function getRoleIdByName(string $roleName): ?int
+    {
+        try {
+            $role = \Config\Database::connect()
+                ->table('role')
+                ->select('id')
+                ->where('nom', $roleName)
+                ->get()
+                ->getRowArray();
+
+            return $role ? (int) $role['id'] : null;
+        } catch (\Throwable $e) {
+            log_message('warning', 'Role lookup error: ' . $e->getMessage());
+
+            return null;
+        }
+    }
+
+    private function getRoleNameById($roleId): string
+    {
+        if ($roleId === null || $roleId === '') {
+            return 'Utilisateur';
+        }
+
+        try {
+            $role = \Config\Database::connect()
+                ->table('role')
+                ->select('nom')
+                ->where('id', (int) $roleId)
+                ->get()
+                ->getRowArray();
+
+            return (string) ($role['nom'] ?? 'Utilisateur');
+        } catch (\Throwable $e) {
+            log_message('warning', 'Role name lookup error: ' . $e->getMessage());
+
+            return 'Utilisateur';
+        }
+    }
+
     // ─────────────────────────────────────────
     //  LOGIN
     // ─────────────────────────────────────────
@@ -158,7 +198,8 @@ class AuthController extends BaseController
             'email'          => $user['email'],
             'genre_id'       => $user['genre_id'] ?? null,
             'Date_naissance' => $user['Date_naissance'] ?? null,
-            'role'           => $user['role'] ?? 'Utilisateur',
+            'id_role'        => $user['id_role'] ?? null,
+            'role'           => $this->getRoleNameById($user['id_role'] ?? null),
             'is_gold'        => (bool) ($user['is_gold'] ?? false),
         ]);
 
@@ -366,6 +407,7 @@ class AuthController extends BaseController
 
         $userModel = new UserModel();
         $userId = $userModel->insert([
+            'id_role'        => $this->getRoleIdByName('Utilisateur'),
             'nom'            => $step1['nom'],
             'prenom'         => $step1['prenom'],
             'email'          => $step1['email'],
@@ -402,6 +444,7 @@ class AuthController extends BaseController
             'email'          => $step1['email'],
             'genre_id'       => $step1['genre_id'],
             'Date_naissance' => $step1['Date_naissance'],
+            'id_role'        => $this->getRoleIdByName('Utilisateur'),
             'role'           => 'Utilisateur',
             'is_gold'        => false,
         ]);

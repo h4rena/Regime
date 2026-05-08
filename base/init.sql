@@ -92,6 +92,16 @@ CREATE TABLE wallet_transactions (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE parametres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cle VARCHAR(100) NOT NULL UNIQUE,
+    libelle VARCHAR(150) NOT NULL,
+    valeur VARCHAR(255) NOT NULL,
+    type VARCHAR(20) DEFAULT 'text',
+    description TEXT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 CREATE TABLE wallet (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNIQUE,
