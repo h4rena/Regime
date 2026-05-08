@@ -91,6 +91,11 @@ class AuthController extends BaseController
         ];
     }
 
+    private function getGoldPrice(): int
+    {
+        return 50000;
+    }
+
     // ─────────────────────────────────────────
     //  LOGIN
     // ─────────────────────────────────────────
@@ -153,7 +158,8 @@ class AuthController extends BaseController
             'email'          => $user['email'],
             'genre_id'       => $user['genre_id'] ?? null,
             'Date_naissance' => $user['Date_naissance'] ?? null,
-            'role'           => $user['role'] ?? 'lecteur',   // 'admin' 
+            'role'           => $user['role'] ?? 'Utilisateur',
+            'is_gold'        => (bool) ($user['is_gold'] ?? false),
         ]);
 
         if ($this->wantsJson()) {
@@ -396,11 +402,63 @@ class AuthController extends BaseController
             'email'          => $step1['email'],
             'genre_id'       => $step1['genre_id'],
             'Date_naissance' => $step1['Date_naissance'],
-            'role'           => 'lecteur',
+            'role'           => 'Utilisateur',
+            'is_gold'        => false,
         ]);
 
         session()->remove(['inscription_step1', 'inscription_step2']);
 
         return redirect()->to('/profil')->with('success', 'Succes enregistre. Votre compte a ete cree avec succes.');
+    }
+
+    /** Active l'option Gold avec un paiement unique débité du portefeuille. */
+    public function activateGold()
+    {
+        $currentUser = session()->get('user');
+
+        if (! $currentUser || empty($currentUser['id'])) {
+            return redirect()->to('/login')->with('erreur', 'Connectez-vous pour activer l\'option Gold.');
+        }
+
+        $userModel = new UserModel();
+        $user = $userModel->find((int) $currentUser['id']);
+
+        if (! $user) {
+            return redirect()->to('/profil')->with('erreur', 'Compte introuvable.');
+        }
+
+        if (! empty($user['is_gold'])) {
+            return redirect()->to('/profil')->with('success', 'Votre option Gold est déjà active.');
+        }
+
+        $goldPrice = $this->getGoldPrice();
+        $walletBalance = (float) ($user['wallet_balance'] ?? 0);
+
+        if ($walletBalance < $goldPrice) {
+            return redirect()->to('/profil')->with('erreur', 'Solde insuffisant pour activer Gold. Rechargez votre portefeuille puis réessayez.');
+        }
+
+        $newBalance = $walletBalance - $goldPrice;
+        $db = \Config\Database::connect();
+
+        $db->transStart();
+        $userModel->update((int) $user['id'], [
+            'is_gold' => 1,
+            'wallet_balance' => $newBalance,
+        ]);
+
+        $db->table('wallet_transactions')->insert([
+            'user_id' => (int) $user['id'],
+            'montant' => $goldPrice,
+            'type'    => 'debit',
+        ]);
+        $db->transComplete();
+
+        $updatedSessionUser = $currentUser;
+        $updatedSessionUser['is_gold'] = true;
+        $updatedSessionUser['wallet_balance'] = $newBalance;
+        session()->set('user', $updatedSessionUser);
+
+        return redirect()->to('/profil')->with('success', 'Option Gold activée. Vous avez désormais 15% de remise sur tous les régimes.');
     }
 }
