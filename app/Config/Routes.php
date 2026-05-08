@@ -65,6 +65,10 @@ $routes->post('/inscription/sante', 'AuthController::sante');
 $routes->get('/inscription/objectif',  'AuthController::objectifForm');
 $routes->post('/inscription/objectif', 'AuthController::objectif');
 
+
+//wallet
+$routes->get('/wallet', 'WalletController::afficheWalletUser', ['filter' => 'auth']);
+
 // Public regimes pages
 $routes->get('/regimes', 'RegimeFrontend::index');
 $routes->get('/regimes/(:num)', 'RegimeFrontend::show/$1');
