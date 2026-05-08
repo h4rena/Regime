@@ -19,6 +19,7 @@ $routes->get('/profil', 'Home::profil', ['filter' => 'auth']);
 $routes->get('/login',           'AuthController::loginForm');
 $routes->post('/login',          'AuthController::login');
 $routes->get('/deconnexion',     'AuthController::logout');
+$routes->post('/gold/activer',    'AuthController::activateGold');
 
 // Inscription — Étape 1 (informations personnelles)
 $routes->get('/inscription',     'AuthController::registerForm');

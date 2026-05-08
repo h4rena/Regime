@@ -9,6 +9,15 @@ use App\Models\GenreModel;
 
 class AuthController extends BaseController
 {
+    private function defaultGenres(): array
+    {
+        return [
+            ['id' => 1, 'nom' => 'Femme'],
+            ['id' => 2, 'nom' => 'Homme'],
+            ['id' => 3, 'nom' => 'Autre'],
+        ];
+    }
+
     private function wantsJson(): bool
     {
         return $this->request->isAJAX() || str_contains((string) $this->request->getHeaderLine('Accept'), 'application/json');
@@ -28,46 +37,25 @@ class AuthController extends BaseController
             'old'    => $this->request->getPost(),
         ]));
     }
-
     private function getGenres(): array
     {
         try {
             $genres = (new GenreModel())->findAll();
-            
-            // Si aucun genre en base, retourner des genres par défaut
-            if (empty($genres)) {
-                return [
-                    ['id' => 1, 'nom' => 'Homme'],
-                    ['id' => 2, 'nom' => 'Femme'],
-                    ['id' => 3, 'nom' => 'Autre'],
-                ];
-            }
-            
-            return $genres;
+
+            return ! empty($genres) ? $genres : $this->defaultGenres();
         } catch (\Throwable $e) {
             log_message('warning', 'GenreModel error: ' . $e->getMessage());
-            // Retourner des genres par défaut en cas d'erreur
-            return [
-                ['id' => 1, 'nom' => 'Homme'],
-                ['id' => 2, 'nom' => 'Femme'],
-                ['id' => 3, 'nom' => 'Autre'],
-            ];
+
+            return $this->defaultGenres();
         }
     }
+                    $genres = (new GenreModel())->findAll();
 
-    private function normalizeGenreId(): ?int
-    {
-        $genreId = $this->request->getPost('genre_id');
+                    return ! empty($genres) ? $genres : $this->defaultGenres();
+                } catch (\Throwable $e) {
+                    log_message('warning', 'GenreModel error: ' . $e->getMessage());
 
-        if (is_array($genreId)) {
-            $genreId = $genreId[0] ?? null;
-        }
-
-        return $genreId !== null && $genreId !== '' ? (int) $genreId : null;
-    }
-
-    private function getObjectives(): array
-    {
+                    return $this->defaultGenres();
         try {
             $objectifs = (new ObjectifModel())->findAll();
             
@@ -111,6 +99,11 @@ class AuthController extends BaseController
             'formula' => 'IMC = poids (kg) / taille² (m²)',
             'hint'    => 'Point de repere avant adaptation a votre objectif',
         ];
+    }
+
+    private function getGoldPrice(): int
+    {
+        return 50000;
     }
 
     // ─────────────────────────────────────────
@@ -175,7 +168,8 @@ class AuthController extends BaseController
             'email'          => $user['email'],
             'genre_id'       => $user['genre_id'] ?? null,
             'Date_naissance' => $user['Date_naissance'] ?? null,
-            'role'           => $user['role'] ?? 'lecteur',   // 'admin' | 'bibliothecaire' | 'lecteur'
+            'role'           => $user['role'] ?? 'Utilisateur',
+            'is_gold'        => (bool) ($user['is_gold'] ?? false),
         ]);
 
         if ($this->wantsJson()) {
@@ -434,7 +428,8 @@ class AuthController extends BaseController
             'email'          => $step1['email'],
             'genre_id'       => $step1['genre_id'],
             'Date_naissance' => $step1['Date_naissance'],
-            'role'           => 'lecteur',
+            'role'           => 'Utilisateur',
+            'is_gold'        => false,
         ]);
 
         session()->remove(['inscription_step1', 'inscription_step2']);
@@ -447,5 +442,56 @@ class AuthController extends BaseController
         }
 
         return redirect()->to('/profil')->with('success', 'Succes enregistre. Votre compte a ete cree avec succes.');
+    }
+
+    /** Active l'option Gold avec un paiement unique débité du portefeuille. */
+    public function activateGold()
+    {
+        $currentUser = session()->get('user');
+
+        if (! $currentUser || empty($currentUser['id'])) {
+            return redirect()->to('/login')->with('erreur', 'Connectez-vous pour activer l\'option Gold.');
+        }
+
+        $userModel = new UserModel();
+        $user = $userModel->find((int) $currentUser['id']);
+
+        if (! $user) {
+            return redirect()->to('/profil')->with('erreur', 'Compte introuvable.');
+        }
+
+        if (! empty($user['is_gold'])) {
+            return redirect()->to('/profil')->with('success', 'Votre option Gold est déjà active.');
+        }
+
+        $goldPrice = $this->getGoldPrice();
+        $walletBalance = (float) ($user['wallet_balance'] ?? 0);
+
+        if ($walletBalance < $goldPrice) {
+            return redirect()->to('/profil')->with('erreur', 'Solde insuffisant pour activer Gold. Rechargez votre portefeuille puis réessayez.');
+        }
+
+        $newBalance = $walletBalance - $goldPrice;
+        $db = \Config\Database::connect();
+
+        $db->transStart();
+        $userModel->update((int) $user['id'], [
+            'is_gold' => 1,
+            'wallet_balance' => $newBalance,
+        ]);
+
+        $db->table('wallet_transactions')->insert([
+            'user_id' => (int) $user['id'],
+            'montant' => $goldPrice,
+            'type'    => 'debit',
+        ]);
+        $db->transComplete();
+
+        $updatedSessionUser = $currentUser;
+        $updatedSessionUser['is_gold'] = true;
+        $updatedSessionUser['wallet_balance'] = $newBalance;
+        session()->set('user', $updatedSessionUser);
+
+        return redirect()->to('/profil')->with('success', 'Option Gold activée. Vous avez désormais 15% de remise sur tous les régimes.');
     }
 }

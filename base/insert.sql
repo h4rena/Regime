@@ -1,3 +1,7 @@
+INSERT INTO role (nom) VALUES
+('Admin'),
+('Utilisateur');
+
 INSERT INTO genre (nom) VALUES
 ('Femme'),
 ('Homme'),
