@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body class="auth-page">
+  <?php
+  $old = isset($old) && is_array($old) ? $old : [];
+  $errors = isset($errors) && is_array($errors) ? $errors : [];
+  ?>
   <div class="auth-split">
     <div class="auth-left">
       <a href="<?= base_url('/') ?>" class="auth-logo">
@@ -41,14 +45,14 @@
 
           <div class="form-group">
             <label class="form-label" for="taille">Taille (cm)</label>
-            <input id="taille" type="number" min="100" max="250" step="0.1" name="taille" class="form-input" data-field="taille" value="<?= esc($old['taille'] ?? '') ?>" required />
-            <small class="field-error" data-error-for="taille"><?= esc($errors['taille'] ?? '') ?></small>
+            <input id="taille" type="number" min="100" max="250" step="0.1" name="taille" class="form-input" value="<?= esc((string) ($old['taille'] ?? '')) ?>" required />
+            <small class="field-error"><?= esc((string) ($errors['taille'] ?? '')) ?></small>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="poids">Poids (kg)</label>
-            <input id="poids" type="number" min="30" max="300" step="0.1" name="poids" class="form-input" data-field="poids" value="<?= esc($old['poids'] ?? '') ?>" required />
-            <small class="field-error" data-error-for="poids"><?= esc($errors['poids'] ?? '') ?></small>
+            <input id="poids" type="number" min="30" max="300" step="0.1" name="poids" class="form-input" value="<?= esc((string) ($old['poids'] ?? '')) ?>" required />
+            <small class="field-error"><?= esc((string) ($errors['poids'] ?? '')) ?></small>
           </div>
 
           <button type="submit" class="btn-primary-full">Suivant: Objectif</button>

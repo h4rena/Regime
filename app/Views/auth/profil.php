@@ -1,13 +1,16 @@
 <?php
 $user = $user ?? session()->get('user') ?? [];
 $sante = $sante ?? [];
-
+$isGold = ! empty($user['is_gold']);
+$successMessage = session()->getFlashdata('success');
+$errorMessage = session()->getFlashdata('erreur');
+$goldPrice = 50000;
 $displayName = trim(($user['prenom'] ?? '') . ' ' . ($user['nom'] ?? ''));
 $displayName = $displayName !== '' ? $displayName : 'Ravo Andria';
 
 $initials = strtoupper(substr((string) ($user['prenom'] ?? 'R'), 0, 1) . substr((string) ($user['nom'] ?? 'A'), 0, 1));
-$email = $user['email'] ?? 'ravo@email.com';
-$genre = $user['genre_nom'] ?? 'Femme';
+$email = (string) ($user['email'] ?? 'ravo@email.com');
+$genre = (string) ($user['genre_nom'] ?? 'Femme');
 $age = $user['age'] ?? null;
 $taille = $sante['taille'] ?? null;
 $poids = $sante['poids'] ?? null;
@@ -19,7 +22,7 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NutriPlan — Mon Profil</title>
+  <title>NutriPlan - Mon profil</title>
   <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
@@ -44,16 +47,43 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
   <main class="page-main">
     <div class="container">
 
+      <?php if ($successMessage): ?>
+        <div class="alert alert-success"><?= esc((string) $successMessage) ?></div>
+      <?php endif; ?>
+
+      <?php if ($errorMessage): ?>
+        <div class="alert alert-danger"><?= esc((string) $errorMessage) ?></div>
+      <?php endif; ?>
+
       <!-- PROFILE HEADER -->
       <div class="profile-header">
         <div class="profile-avatar"><?= esc($initials) ?></div>
         <div class="profile-info">
           <h1 class="profile-name"><?= esc($displayName) ?></h1>
           <p class="profile-meta"><?= esc($email) ?> · <?= esc($genre) ?> · <?= esc($age !== null ? (string) $age : '—') ?> ans</p>
-          <span class="badge badge-gold">★ Option Gold active</span>
+          <?php if ($isGold): ?>
+            <span class="badge badge-gold">★ Option Gold active</span>
+          <?php else: ?>
+            <span class="badge">Option Gold disponible</span>
+          <?php endif; ?>
         </div>
         <a href="#" class="btn-outline-sm">Modifier le profil</a>
       </div>
+
+      <?php if (! $isGold): ?>
+        <div class="card mt-16">
+          <div class="card-header-blue">
+            <h2 class="card-title-white">Activer l'option Gold</h2>
+          </div>
+          <div class="card-body">
+            <p class="form-help">Paiement unique de <?= esc(number_format($goldPrice, 0, '.', ' ')) ?> Ar. Gold donne 15% de remise sur tous les régimes.</p>
+            <form method="POST" action="<?= base_url('/gold/activer') ?>">
+              <?= csrf_field() ?>
+              <button type="submit" class="btn-primary-sm">Activer Gold maintenant</button>
+            </form>
+          </div>
+        </div>
+      <?php endif; ?>
 
       <div class="profil-grid">
 
@@ -119,81 +149,43 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
           <div class="card">
             <div class="card-header-blue">
               <h2 class="card-title-white">Régimes suggérés</h2>
-              <span class="gold-pill">★ Gold −15%</span>
+              <?php if ($isGold): ?>
+                <span class="gold-pill">★ Gold −15%</span>
+              <?php else: ?>
+                <span class="gold-pill">Gold disponible</span>
+              <?php endif; ?>
             </div>
             <div class="card-body">
 
-              <div class="regime-item featured">
-                <div class="regime-item-top">
-                  <div>
-                    <h3 class="regime-name">Régime Équilibré Marin</h3>
-                    <p class="regime-meta">30 jours · −3 kg estimés</p>
+              <?php $regimes = $regimes ?? []; foreach ($regimes as $r): ?>
+                <div class="regime-item <?= isset($r['featured']) && $r['featured'] ? 'featured' : '' ?>">
+                  <div class="regime-item-top">
+                    <div>
+                      <h3 class="regime-name"><?= esc($r['nom']) ?></h3>
+                      <p class="regime-meta"><?= esc((int)$r['duree_jours']) ?> jours · <?= esc($r['variation_poids']) ?> kg</p>
+                    </div>
+                    <div class="regime-pricing">
+                      <?php if ($isGold): ?>
+                        <span class="regime-price-old"><?= esc(number_format((float)$r['prix'],0,' ', ' ')) ?> Ar</span>
+                        <span class="regime-price"><?= esc(number_format(round((float)$r['prix']*0.85),0,' ', ' ')) ?> Ar</span>
+                      <?php else: ?>
+                        <span class="regime-price"><?= esc(number_format((float)$r['prix'],0,' ', ' ')) ?> Ar</span>
+                      <?php endif; ?>
+                    </div>
                   </div>
-                  <div class="regime-pricing">
-                    <span class="regime-price-old">33 000 Ar</span>
-                    <span class="regime-price">28 000 Ar</span>
+                  <div class="macro-bar-full">
+                    <div class="macro-seg" style="width:40%;background:var(--blue-600)"></div>
+                    <div class="macro-seg" style="width:35%;background:var(--blue-400)"></div>
+                    <div class="macro-seg" style="width:25%;background:var(--blue-200)"></div>
                   </div>
-                </div>
-                <div class="macro-bar-full">
-                  <div class="macro-seg" style="width:40%;background:var(--blue-600)"></div>
-                  <div class="macro-seg" style="width:35%;background:var(--blue-400)"></div>
-                  <div class="macro-seg" style="width:25%;background:var(--blue-200)"></div>
-                </div>
-                <div class="macro-legend">
-                  <span><span class="macro-dot" style="background:var(--blue-600)"></span>Poisson 40%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 35%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande 25%</span>
-                </div>
-                <a href="<?= base_url('/regimes') ?>" class="btn-primary-sm mt-10">Choisir ce régime</a>
-              </div>
-
-              <div class="regime-item">
-                <div class="regime-item-top">
-                  <div>
-                    <h3 class="regime-name">Régime Léger Actif</h3>
-                    <p class="regime-meta">14 jours · −1.5 kg estimés</p>
+                  <div class="macro-legend">
+                    <span><span class="macro-dot" style="background:var(--blue-600)"></span>Poisson 40%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 35%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande 25%</span>
                   </div>
-                  <div class="regime-pricing">
-                    <span class="regime-price-old">21 000 Ar</span>
-                    <span class="regime-price">18 000 Ar</span>
-                  </div>
+                  <a href="<?= base_url('/regimes/' . $r['id']) ?>" class="btn-primary-sm mt-10">Choisir ce régime</a>
                 </div>
-                <div class="macro-bar-full">
-                  <div class="macro-seg" style="width:50%;background:var(--blue-400)"></div>
-                  <div class="macro-seg" style="width:30%;background:var(--blue-200)"></div>
-                  <div class="macro-seg" style="width:20%;background:var(--blue-600)"></div>
-                </div>
-                <div class="macro-legend">
-                  <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 50%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-200)"></span>Poisson 30%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-600)"></span>Viande 20%</span>
-                </div>
-                <a href="<?= base_url('/regimes') ?>" class="btn-outline-sm mt-10">Choisir ce régime</a>
-              </div>
-
-              <div class="regime-item">
-                <div class="regime-item-top">
-                  <div>
-                    <h3 class="regime-name">Régime Protéiné Force</h3>
-                    <p class="regime-meta">21 jours · +2 kg masse</p>
-                  </div>
-                  <div class="regime-pricing">
-                    <span class="regime-price-old">26 000 Ar</span>
-                    <span class="regime-price">22 000 Ar</span>
-                  </div>
-                </div>
-                <div class="macro-bar-full">
-                  <div class="macro-seg" style="width:50%;background:var(--blue-800)"></div>
-                  <div class="macro-seg" style="width:30%;background:var(--blue-400)"></div>
-                  <div class="macro-seg" style="width:20%;background:var(--blue-100)"></div>
-                </div>
-                <div class="macro-legend">
-                  <span><span class="macro-dot" style="background:var(--blue-800)"></span>Viande 50%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 30%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-100)"></span>Poisson 20%</span>
-                </div>
-                <a href="<?= base_url('/regimes') ?>" class="btn-outline-sm mt-10">Choisir ce régime</a>
-              </div>
+              <?php endforeach; ?>
 
             </div>
           </div>

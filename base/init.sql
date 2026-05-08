@@ -1,6 +1,11 @@
 CREATE DATABASE regime;
 USE regime;
 
+CREATE TABLE role(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE genre(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL
@@ -8,6 +13,7 @@ CREATE TABLE genre(
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    id_role INT,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     email VARCHAR(150) UNIQUE,
@@ -17,7 +23,8 @@ CREATE TABLE users (
     wallet_balance DECIMAL(10,2) DEFAULT 0,
     is_gold BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (genre_id) REFERENCES genre(id)
+    FOREIGN KEY (genre_id) REFERENCES genre(id),
+    FOREIGN KEY (id_role) REFERENCES role(id)
 );
 
 CREATE TABLE objectif(
@@ -85,6 +92,23 @@ CREATE TABLE wallet_transactions (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE parametres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cle VARCHAR(100) NOT NULL UNIQUE,
+    libelle VARCHAR(150) NOT NULL,
+    valeur VARCHAR(255) NOT NULL,
+    type VARCHAR(20) DEFAULT 'text',
+    description TEXT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE wallet (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNIQUE,
+    type ENUM('gold', 'normal') DEFAULT 'normal',
+    montant DECIMAL(10,2) DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
 CREATE TABLE statut(
     id INT AUTO_INCREMENT PRIMARY KEY,
