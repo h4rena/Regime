@@ -8,7 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <?php $currentUser = session()->get('user'); ?>
+  <?php
+    $currentUser = $currentUser ?? session()->get('user');
+    $imc = $imc ?? null;
+    $taille = $taille ?? null;
+    $poids = $poids ?? null;
+  ?>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -56,10 +61,10 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="imc-demo-card">
+          <div class="imc-demo-card">
           <p class="idc-label">Votre IMC</p>
           <div class="idc-circle">
-            <span class="idc-val">22.4</span>
+            <span class="idc-val"><?= esc($imc !== null ? number_format((float)$imc, 2, '.', '') : '—') ?></span>
             <span class="idc-unit">kg/m²</span>
           </div>
           <div class="idc-bar">
@@ -70,7 +75,19 @@
             <span>Maigreur</span><span>Normal</span><span>Obésité</span>
           </div>
           <div class="idc-status">
-            <span class="badge badge-success">Poids normal</span>
+            <?php if ($imc !== null): ?>
+              <?php if ($imc < 18.5): ?>
+                <span class="badge">Maigreur</span>
+              <?php elseif ($imc < 25): ?>
+                <span class="badge badge-success">Poids normal</span>
+              <?php elseif ($imc < 30): ?>
+                <span class="badge">Surpoids</span>
+              <?php else: ?>
+                <span class="badge">Obésité</span>
+              <?php endif; ?>
+            <?php else: ?>
+              <span class="badge">—</span>
+            <?php endif; ?>
           </div>
         </div>
       </div>

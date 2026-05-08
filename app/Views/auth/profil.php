@@ -157,89 +157,35 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
             </div>
             <div class="card-body">
 
-              <div class="regime-item featured">
-                <div class="regime-item-top">
-                  <div>
-                    <h3 class="regime-name">Régime Équilibré Marin</h3>
-                    <p class="regime-meta">30 jours · −3 kg estimés</p>
+              <?php $regimes = $regimes ?? []; foreach ($regimes as $r): ?>
+                <div class="regime-item <?= isset($r['featured']) && $r['featured'] ? 'featured' : '' ?>">
+                  <div class="regime-item-top">
+                    <div>
+                      <h3 class="regime-name"><?= esc($r['nom']) ?></h3>
+                      <p class="regime-meta"><?= esc((int)$r['duree_jours']) ?> jours · <?= esc($r['variation_poids']) ?> kg</p>
+                    </div>
+                    <div class="regime-pricing">
+                      <?php if ($isGold): ?>
+                        <span class="regime-price-old"><?= esc(number_format((float)$r['prix'],0,' ', ' ')) ?> Ar</span>
+                        <span class="regime-price"><?= esc(number_format(round((float)$r['prix']*0.85),0,' ', ' ')) ?> Ar</span>
+                      <?php else: ?>
+                        <span class="regime-price"><?= esc(number_format((float)$r['prix'],0,' ', ' ')) ?> Ar</span>
+                      <?php endif; ?>
+                    </div>
                   </div>
-                  <div class="regime-pricing">
-                    <?php if ($isGold): ?>
-                      <span class="regime-price-old">33 000 Ar</span>
-                      <span class="regime-price">28 000 Ar</span>
-                    <?php else: ?>
-                      <span class="regime-price">33 000 Ar</span>
-                    <?php endif; ?>
+                  <div class="macro-bar-full">
+                    <div class="macro-seg" style="width:40%;background:var(--blue-600)"></div>
+                    <div class="macro-seg" style="width:35%;background:var(--blue-400)"></div>
+                    <div class="macro-seg" style="width:25%;background:var(--blue-200)"></div>
                   </div>
-                </div>
-                <div class="macro-bar-full">
-                  <div class="macro-seg" style="width:40%;background:var(--blue-600)"></div>
-                  <div class="macro-seg" style="width:35%;background:var(--blue-400)"></div>
-                  <div class="macro-seg" style="width:25%;background:var(--blue-200)"></div>
-                </div>
-                <div class="macro-legend">
-                  <span><span class="macro-dot" style="background:var(--blue-600)"></span>Poisson 40%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 35%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande 25%</span>
-                </div>
-                <a href="<?= base_url('/regimes') ?>" class="btn-primary-sm mt-10">Choisir ce régime</a>
-              </div>
-
-              <div class="regime-item">
-                <div class="regime-item-top">
-                  <div>
-                    <h3 class="regime-name">Régime Léger Actif</h3>
-                    <p class="regime-meta">14 jours · −1.5 kg estimés</p>
+                  <div class="macro-legend">
+                    <span><span class="macro-dot" style="background:var(--blue-600)"></span>Poisson 40%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 35%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande 25%</span>
                   </div>
-                  <div class="regime-pricing">
-                    <?php if ($isGold): ?>
-                      <span class="regime-price-old">21 000 Ar</span>
-                      <span class="regime-price">18 000 Ar</span>
-                    <?php else: ?>
-                      <span class="regime-price">21 000 Ar</span>
-                    <?php endif; ?>
-                  </div>
+                  <a href="<?= base_url('/regimes/' . $r['id']) ?>" class="btn-primary-sm mt-10">Choisir ce régime</a>
                 </div>
-                <div class="macro-bar-full">
-                  <div class="macro-seg" style="width:50%;background:var(--blue-400)"></div>
-                  <div class="macro-seg" style="width:30%;background:var(--blue-200)"></div>
-                  <div class="macro-seg" style="width:20%;background:var(--blue-600)"></div>
-                </div>
-                <div class="macro-legend">
-                  <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 50%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-200)"></span>Poisson 30%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-600)"></span>Viande 20%</span>
-                </div>
-                <a href="<?= base_url('/regimes') ?>" class="btn-outline-sm mt-10">Choisir ce régime</a>
-              </div>
-
-              <div class="regime-item">
-                <div class="regime-item-top">
-                  <div>
-                    <h3 class="regime-name">Régime Protéiné Force</h3>
-                    <p class="regime-meta">21 jours · +2 kg masse</p>
-                  </div>
-                  <div class="regime-pricing">
-                    <?php if ($isGold): ?>
-                      <span class="regime-price-old">26 000 Ar</span>
-                      <span class="regime-price">22 000 Ar</span>
-                    <?php else: ?>
-                      <span class="regime-price">26 000 Ar</span>
-                    <?php endif; ?>
-                  </div>
-                </div>
-                <div class="macro-bar-full">
-                  <div class="macro-seg" style="width:50%;background:var(--blue-800)"></div>
-                  <div class="macro-seg" style="width:30%;background:var(--blue-400)"></div>
-                  <div class="macro-seg" style="width:20%;background:var(--blue-100)"></div>
-                </div>
-                <div class="macro-legend">
-                  <span><span class="macro-dot" style="background:var(--blue-800)"></span>Viande 50%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 30%</span>
-                  <span><span class="macro-dot" style="background:var(--blue-100)"></span>Poisson 20%</span>
-                </div>
-                <a href="<?= base_url('/regimes') ?>" class="btn-outline-sm mt-10">Choisir ce régime</a>
-              </div>
+              <?php endforeach; ?>
 
             </div>
           </div>

@@ -10,7 +10,33 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('auth/home');
+        $currentUser = session()->get('user');
+        $imc = null;
+        $taille = null;
+        $poids = null;
+
+        if ($currentUser && ! empty($currentUser['id'])) {
+            try {
+                $sante = (new SanteModel())->getByUser((int) $currentUser['id']);
+                if ($sante && isset($sante['taille'], $sante['poids'])) {
+                    $taille = (float) $sante['taille'];
+                    $poids  = (float) $sante['poids'];
+                    $tailleM = $taille / 100;
+                    if ($tailleM > 0) {
+                        $imc = round($poids / ($tailleM ** 2), 2);
+                    }
+                }
+            } catch (\Throwable $e) {
+                // ignore and render default view
+            }
+        }
+
+        return view('auth/home', [
+            'currentUser' => $currentUser,
+            'imc' => $imc,
+            'taille' => $taille,
+            'poids' => $poids,
+        ]);
     }
 
     public function profil()
@@ -50,6 +76,13 @@ class Home extends BaseController
             }
         }
 
+        $regimes = [];
+        try {
+            $regimes = (new \App\Models\RegimeModel())->orderBy('id', 'DESC')->findAll(5);
+        } catch (\Throwable) {
+            $regimes = [];
+        }
+
         return view('auth/profil', [
             'user' => array_merge($user, [
                 'genre_nom' => $genreNom,
@@ -57,6 +90,7 @@ class Home extends BaseController
                 'imc'       => $imc,
             ]),
             'sante' => $sante,
+            'regimes' => $regimes,
         ]);
     }
 }
