@@ -91,6 +91,10 @@ CREATE TABLE wallet_transactions (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+CREATE TABLE wallet (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNIQUE NOT NULL,
+    type ENUM('golde', 'normal') DEFAULT 'normal',
 
 CREATE TABLE parametres (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -37,7 +37,6 @@ class AuthController extends BaseController
             'old'    => $this->request->getPost(),
         ]));
     }
-
     private function getGenres(): array
     {
         try {
@@ -50,25 +49,36 @@ class AuthController extends BaseController
             return $this->defaultGenres();
         }
     }
+                    $genres = (new GenreModel())->findAll();
 
-    private function normalizeGenreId(): ?int
-    {
-        $genreId = $this->request->getPost('genre_id');
+                    return ! empty($genres) ? $genres : $this->defaultGenres();
+                } catch (\Throwable $e) {
+                    log_message('warning', 'GenreModel error: ' . $e->getMessage());
 
-        if (is_array($genreId)) {
-            $genreId = $genreId[0] ?? null;
-        }
-
-        return $genreId !== null && $genreId !== '' ? (int) $genreId : null;
-    }
-
-    private function getObjectives(): array
-    {
+                    return $this->defaultGenres();
         try {
-            return (new ObjectifModel())->findAll();
+            $objectifs = (new ObjectifModel())->findAll();
+            
+            // Si aucun objectif en base, retourner des objectifs par défaut
+            if (empty($objectifs)) {
+                return [
+                    ['id' => 1, 'nom' => 'Perdre du poids'],
+                    ['id' => 2, 'nom' => 'Prendre du poids'],
+                    ['id' => 3, 'nom' => 'Maintenir le poids'],
+                    ['id' => 4, 'nom' => 'Améliorer ma santé'],
+                ];
+            }
+            
+            return $objectifs;
         } catch (\Throwable $e) {
             log_message('warning', 'ObjectifModel error: ' . $e->getMessage());
-            return [];
+            // Retourner des objectifs par défaut en cas d'erreur
+            return [
+                ['id' => 1, 'nom' => 'Perdre du poids'],
+                ['id' => 2, 'nom' => 'Prendre du poids'],
+                ['id' => 3, 'nom' => 'Maintenir le poids'],
+                ['id' => 4, 'nom' => 'Améliorer ma santé'],
+            ];
         }
     }
 
@@ -396,6 +406,13 @@ class AuthController extends BaseController
         }
 
         if (! $this->validate(['id_objectif' => 'required|integer'])) {
+            if ($this->wantsJson()) {
+                return $this->response->setStatusCode(422)->setJSON([
+                    'status' => 'error',
+                    'errors' => $this->validator->getErrors(),
+                ]);
+            }
+
             return view('auth/objectif', [
                 'objectifs' => $this->getObjectives(),
                 'idealImc'  => $this->getIdealImcLabel($step2),
@@ -417,6 +434,15 @@ class AuthController extends BaseController
         ]);
 
         if (! $userId) {
+            if ($this->wantsJson()) {
+                return $this->response->setStatusCode(500)->setJSON([
+                    'status' => 'error',
+                    'errors' => [
+                        'id_objectif' => 'Une erreur est survenue lors de la création du compte.',
+                    ],
+                ]);
+            }
+
             return view('auth/objectif', [
                 'objectifs' => $this->getObjectives(),
                 'idealImc'  => $this->getIdealImcLabel($step2),
@@ -450,6 +476,13 @@ class AuthController extends BaseController
         ]);
 
         session()->remove(['inscription_step1', 'inscription_step2']);
+
+        if ($this->wantsJson()) {
+            return $this->response->setJSON([
+                'status'   => 'success',
+                'redirect' => base_url('/profil'),
+            ]);
+        }
 
         return redirect()->to('/profil')->with('success', 'Succes enregistre. Votre compte a ete cree avec succes.');
     }
