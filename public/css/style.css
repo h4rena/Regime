@@ -1076,18 +1076,21 @@ input, select, textarea, button { font-family: var(--font); }
   top: 50%;
   right: 8px;
   transform: translateY(-50%);
-  border: 1px solid var(--border-mid);
-  background: #fff;
+  border: none;
+  background: transparent;
   color: var(--text-secondary);
   border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
+  font-size: 18px;
   cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
 }
 
 .toggle-password:hover {
-  background: var(--blue-50);
+  color: var(--blue-600);
 }
 
 .checkbox-grid {
