@@ -32,6 +32,9 @@
 
   function bindPasswordToggle() {
     qsa('[data-toggle-password]').forEach(function (btn) {
+      // Initialiser l'icône
+      btn.textContent = '👁️';
+      
       btn.addEventListener('click', function () {
         var wrap = btn.closest('.password-wrap');
         if (!wrap) {
@@ -45,7 +48,7 @@
 
         var isHidden = input.type === 'password';
         input.type = isHidden ? 'text' : 'password';
-        btn.textContent = isHidden ? 'Masquer' : 'Voir';
+        btn.textContent = isHidden ? '👁️‍🗨️' : '👁️';
       });
     });
   }

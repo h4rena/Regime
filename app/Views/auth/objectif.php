@@ -43,24 +43,27 @@
           </div>
         </div>
 
-        <form class="auth-form" method="POST" action="<?= base_url('/inscription/objectif') ?>">
+        <form class="auth-form" method="POST" action="<?= base_url('/inscription/objectif') ?>" data-ajax-form="objectif">
           <?= csrf_field() ?>
 
-          <div class="goal-select">
-            <?php foreach (($objectifs ?? []) as $objectif): ?>
-              <?php $selected = ((string) ($old['id_objectif'] ?? '') === (string) $objectif['id']) ? 'checked' : ''; ?>
-              <label class="goal-option">
-                <input type="radio" name="id_objectif" value="<?= esc($objectif['id']) ?>" <?= $selected ?> required />
-                <div class="goal-card">
-                  <div class="goal-icon">🎯</div>
-                  <span class="goal-text"><?= esc($objectif['nom']) ?></span>
-                </div>
-              </label>
-            <?php endforeach; ?>
+          <div class="form-group">
+            <label class="form-label">Choisissez votre objectif</label>
+            <div class="goal-select">
+              <?php foreach (($objectifs ?? []) as $objectif): ?>
+                <?php $selected = ((string) ($old['id_objectif'] ?? '') === (string) $objectif['id']) ? 'checked' : ''; ?>
+                <label class="goal-option">
+                  <input type="radio" name="id_objectif" value="<?= esc($objectif['id']) ?>" data-field="id_objectif" <?= $selected ?> required />
+                  <div class="goal-card">
+                    <div class="goal-icon">🎯</div>
+                    <span class="goal-text"><?= esc($objectif['nom']) ?></span>
+                  </div>
+                </label>
+              <?php endforeach; ?>
+            </div>
+            <small class="field-error" data-error-for="id_objectif"><?= esc($errors['id_objectif'] ?? '') ?></small>
           </div>
-          <small class="field-error"><?= esc($errors['id_objectif'] ?? '') ?></small>
 
-          <button type="submit" class="btn-primary-full">Enregistrer le formulaire</button>
+          <button type="submit" class="btn-primary-full" data-submit-btn>Enregistrer le formulaire</button>
         </form>
 
         <p class="auth-switch">Retour a <a href="<?= base_url('/inscription/sante') ?>">l'etape precedente</a></p>

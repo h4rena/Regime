@@ -45,14 +45,14 @@
 
           <div class="form-group">
             <label class="form-label" for="taille">Taille (cm)</label>
-            <input id="taille" type="number" min="100" max="250" step="0.1" name="taille" class="form-input" value="<?= esc((string) ($old['taille'] ?? '')) ?>" required />
-            <small class="field-error"><?= esc((string) ($errors['taille'] ?? '')) ?></small>
+            <input id="taille" type="number" min="100" max="250" step="0.1" name="taille" class="form-input" data-field="taille" value="<?= esc((string) ($old['taille'] ?? '')) ?>" required />
+            <small class="field-error" data-error-for="taille"><?= esc((string) ($errors['taille'] ?? '')) ?></small>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="poids">Poids (kg)</label>
-            <input id="poids" type="number" min="30" max="300" step="0.1" name="poids" class="form-input" value="<?= esc((string) ($old['poids'] ?? '')) ?>" required />
-            <small class="field-error"><?= esc((string) ($errors['poids'] ?? '')) ?></small>
+            <input id="poids" type="number" min="30" max="300" step="0.1" name="poids" class="form-input" data-field="poids" value="<?= esc((string) ($old['poids'] ?? '')) ?>" required />
+            <small class="field-error" data-error-for="poids"><?= esc((string) ($errors['poids'] ?? '')) ?></small>
           </div>
 
           <button type="submit" class="btn-primary-full">Suivant: Objectif</button>
