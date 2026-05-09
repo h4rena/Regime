@@ -1,0 +1,338 @@
+CRITICAL - 2026-05-07 18:17:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "auth/login.php"
+[Method: GET, Route: login]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('auth/login', [], true)
+ 3 APPPATH\Controllers\AuthController.php(22): view('auth/login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->loginForm()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-07 18:18:13 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "auth/login.php"
+[Method: GET, Route: login]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('auth/login', [], true)
+ 3 APPPATH\Controllers\AuthController.php(22): view('auth/login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->loginForm()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-07 18:18:27 --> Error: Call to a member function findAll() on null
+[Method: GET, Route: inscription]
+in APPPATH\Controllers\AuthController.php on line 82.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:35:40 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:36:02 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:36:25 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:36:59 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(118): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->register()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:37:43 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(118): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->register()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:38:23 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(118): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->register()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:39:09 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-07 18:40:05 --> Error: Class "Config\AuthFilter" not found
+[Method: GET, Route: regimes]
+in SYSTEMPATH\Filters\Filters.php on line 299.
+ 1 SYSTEMPATH\Filters\Filters.php(239): CodeIgniter\Filters\Filters->createFilter('Config\\AuthFilter')
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(465): CodeIgniter\Filters\Filters->run('regimes', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:40:10 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-07 18:40:35 --> Error: Class "Config\AuthFilter" not found
+[Method: GET, Route: regimes]
+in SYSTEMPATH\Filters\Filters.php on line 299.
+ 1 SYSTEMPATH\Filters\Filters.php(239): CodeIgniter\Filters\Filters->createFilter('Config\\AuthFilter')
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(465): CodeIgniter\Filters\Filters->run('regimes', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:40:40 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:41:13 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:45:47 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:48:07 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 18:48:22 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 19:47:05 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-07 19:47:09 --> Table 'regime.genres' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `genres`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genres`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genres`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genres`', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AuthController.php(83): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AuthController->registerForm()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
