@@ -27,7 +27,7 @@ INSERT INTO regime (nom, variation_poids, duree_jours, prix) VALUES
 
 -- Données de test en Ariary (Ar)
 INSERT INTO users (id_role, nom, prenom, email, password, genre_id, Date_naissance, wallet_balance, is_gold) VALUES
-(1, 'Admin', 'Test', 'admin@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 1, '1990-01-01', 250000, 1),
+(1, 'Admin', 'Test', 'admin@regime.local', '$2y$10$lQ7hXisg5MFqOE.NBWwnaOnZ7XIrSoGIkRksKXFP4kCNyvbDdODKy', 1, '1990-01-01', 250000, 1),
 (2, 'Jean', 'Rakoto', 'jean.rakoto@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 2, '1995-06-15', 125000, 0),
 (2, 'Mina', 'Rasoa', 'mina.rasoa@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 3, '1998-11-20', 80000, 0);
 

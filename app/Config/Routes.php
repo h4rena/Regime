@@ -20,12 +20,23 @@ $routes->get('/profil/pdf', 'Home::profilPdf', ['filter' => 'auth']);
 $routes->get('/login',           'AuthController::loginForm');
 $routes->post('/login',          'AuthController::login');
 $routes->get('/deconnexion',     'AuthController::logout');
+$routes->get('/logout',          'AuthController::logout');
 $routes->post('/gold/activer',    'AuthController::activateGold');
 
 // Back office
 $adminFilters = ['auth', 'role:Admin'];
 $routes->get('/admin', 'BackofficeController::index', ['filter' => $adminFilters]);
 $routes->get('/backoffice', 'BackofficeController::index', ['filter' => $adminFilters]);
+$routes->get('/dashboard', 'DashbordController::index', ['filter' => $adminFilters]);
+$routes->get('/admin/dashboard', 'DashbordController::index', ['filter' => $adminFilters]);
+
+// Codes portefeuille CRUD
+$routes->get('/admin/codes', 'WalletCodeController::index', ['filter' => $adminFilters]);
+$routes->get('/admin/codes/create', 'WalletCodeController::create', ['filter' => $adminFilters]);
+$routes->post('/admin/codes/store', 'WalletCodeController::store', ['filter' => $adminFilters]);
+$routes->get('/admin/codes/edit/(:num)', 'WalletCodeController::edit/$1', ['filter' => $adminFilters]);
+$routes->post('/admin/codes/update/(:num)', 'WalletCodeController::update/$1', ['filter' => $adminFilters]);
+$routes->get('/admin/codes/delete/(:num)', 'WalletCodeController::delete/$1', ['filter' => $adminFilters]);
 
 // Régimes CRUD
 $routes->get('/admin/regimes', 'RegimeController::index', ['filter' => $adminFilters]);

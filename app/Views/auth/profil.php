@@ -1,6 +1,7 @@
 <?php
 $user = $user ?? session()->get('user') ?? [];
 $sante = $sante ?? [];
+$isAdmin = (($user['role'] ?? null) === 'Admin');
 $isGold = ! empty($user['is_gold']);
 $successMessage = session()->getFlashdata('success');
 $errorMessage = session()->getFlashdata('erreur');
@@ -36,6 +37,10 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
         <li><a href="<?= base_url('/regimes') ?>" class="nav-link">Régimes</a></li>
         <li><a href="<?= base_url('/profil') ?>" class="nav-link active">Mon profil</a></li>
         <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
+        <?php if ($isAdmin): ?>
+          <li><a href="<?= base_url('/admin') ?>" class="nav-link">Dashboard</a></li>
+          <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+        <?php endif; ?>
       </ul>
       <div class="nav-actions">
         <span class="nav-user-name"><?= esc($displayName) ?></span>

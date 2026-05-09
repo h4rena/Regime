@@ -38,7 +38,7 @@ class ActiviteController extends BaseController
             'duree_recommandee_min' => $this->request->getPost('duree_recommandee_min'),
         ]);
 
-        return redirect()->to('/admin/activites')->with('success', 'Activité créée.');
+        return redirect()->to('/admin')->with('success', 'Activité créée.');
     }
 
     public function edit($id)
@@ -72,7 +72,7 @@ class ActiviteController extends BaseController
             'duree_recommandee_min' => $this->request->getPost('duree_recommandee_min'),
         ]);
 
-        return redirect()->to('/admin/activites')->with('success', 'Activité mise à jour.');
+        return redirect()->to('/admin')->with('success', 'Activité mise à jour.');
     }
 
     public function delete($id)
@@ -80,6 +80,6 @@ class ActiviteController extends BaseController
         $model = new ActiviteModel();
         $model->delete((int) $id);
 
-        return redirect()->to('/admin/activites')->with('success', 'Activité supprimée.');
+        return redirect()->to('/admin')->with('success', 'Activité supprimée.');
     }
 }

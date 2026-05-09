@@ -2,6 +2,7 @@
 $isGold = $isGold ?? false;
 $regimes = $regimes ?? [];
 $currentUser = session()->get('user') ?? [];
+$isAdmin = (($currentUser['role'] ?? null) === 'Admin');
 $displayName = trim(($currentUser['prenom'] ?? '') . ' ' . ($currentUser['nom'] ?? ''));
 $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
 ?>
@@ -22,6 +23,10 @@ $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
         <li><a href="<?= base_url('/regimes') ?>" class="nav-link active">Régimes</a></li>
         <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
         <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
+       <?php if ($isAdmin): ?>
+           <li><a href="<?= base_url('/admin') ?>" class="nav-link">Dashboard</a></li>
+           <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+        <?php endif; ?>
       </ul>
       <div class="nav-actions">
         <span class="nav-user-name"><?= esc($displayName) ?></span>

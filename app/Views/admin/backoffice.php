@@ -9,7 +9,10 @@ $regimes = $regimes ?? [];
 $activities = $activities ?? [];
 $walletCodes = $walletCodes ?? [];
 $parameters = $parameters ?? [];
-$maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $signupSeries)) ?: 1;
+$maxSignup = 1;
+if (! empty($signupSeries)) {
+  $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $signupSeries)) ?: 1;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,6 +48,11 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
     }
     .btn-action-del:hover {
       background: #FFF7E3;
+    }
+    a.btn-action-edit,
+    a.btn-action-del {
+      display: inline-block;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -111,7 +119,7 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
       <div class="card mt-24" id="regimes">
         <div class="card-header-blue" style="justify-content:space-between;gap:12px;flex-wrap:wrap;">
           <h2 class="card-title-white">CRUD des régimes</h2>
-          <button class="btn-primary-sm" type="button">+ Nouveau régime</button>
+          <a class="btn-primary-sm" href="<?= base_url('/admin/regimes/create') ?>">+ Nouveau régime</a>
         </div>
         <div class="card-body p0">
           <table class="data-table">
@@ -125,7 +133,10 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
                   <td><?= esc((string) ($regime['variation_poids'] ?? '')) ?> kg</td>
                   <td><?= esc((string) ($regime['duree_jours'] ?? '')) ?> jours</td>
                   <td><?= esc(number_format((float) ($regime['prix'] ?? 0), 0, ',', ' ')) ?> Ar</td>
-                  <td class="td-actions"><button class="btn-action-edit" type="button">Modifier</button> <button class="btn-action-del" type="button">Supprimer</button></td>
+                  <td class="td-actions">
+                    <a class="btn-action-edit" href="<?= base_url('/admin/regimes/edit/' . (int) ($regime['id'] ?? 0)) ?>">Modifier</a>
+                    <a class="btn-action-del" href="<?= base_url('/admin/regimes/delete/' . (int) ($regime['id'] ?? 0)) ?>" onclick="return confirm('Supprimer ce régime ?')">Supprimer</a>
+                  </td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
@@ -136,7 +147,7 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
       <div class="card mt-24" id="activites">
         <div class="card-header-blue" style="justify-content:space-between;gap:12px;flex-wrap:wrap;">
           <h2 class="card-title-white">CRUD des activités sportives</h2>
-          <button class="btn-primary-sm" type="button">+ Nouvelle activité</button>
+          <a class="btn-primary-sm" href="<?= base_url('/admin/activites/create') ?>">+ Nouvelle activité</a>
         </div>
         <div class="card-body p0">
           <table class="data-table">
@@ -149,7 +160,10 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
                   <td><strong><?= esc((string) ($activity['nom'] ?? '')) ?></strong></td>
                   <td><?= esc((string) ($activity['calories_par_heure'] ?? '')) ?></td>
                   <td><?= esc((string) ($activity['duree_recommandee_min'] ?? '')) ?> min</td>
-                  <td class="td-actions"><button class="btn-action-edit" type="button">Modifier</button> <button class="btn-action-del" type="button">Supprimer</button></td>
+                  <td class="td-actions">
+                    <a class="btn-action-edit" href="<?= base_url('/admin/activites/edit/' . (int) ($activity['id'] ?? 0)) ?>">Modifier</a>
+                    <a class="btn-action-del" href="<?= base_url('/admin/activites/delete/' . (int) ($activity['id'] ?? 0)) ?>" onclick="return confirm('Supprimer cette activité ?')">Supprimer</a>
+                  </td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
@@ -160,7 +174,7 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
       <div class="card mt-24" id="wallet-codes">
         <div class="card-header-blue" style="justify-content:space-between;gap:12px;flex-wrap:wrap;">
           <h2 class="card-title-white">Validation des codes portefeuille</h2>
-          <button class="btn-primary-sm" type="button">+ Générer des codes</button>
+          <a class="btn-primary-sm" href="<?= base_url('/admin/codes/create') ?>">+ Générer des codes</a>
         </div>
         <div class="card-body p0">
           <table class="data-table">
@@ -182,11 +196,8 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
                   <td><?= esc(trim((string) ($code['user_nom'] ?? '') . ' ' . (string) ($code['user_prenom'] ?? '')) ?: '—') ?></td>
                   <td><?= esc((string) ($code['used_at'] ?? '—')) ?></td>
                   <td class="td-actions">
-                    <?php if (! empty($code['is_used'])): ?>
-                      <button class="btn-action-del" type="button">Invalider</button>
-                    <?php else: ?>
-                      <button class="btn-action-edit" type="button">Valider</button>
-                    <?php endif; ?>
+                    <a class="btn-action-edit" href="<?= base_url('/admin/codes/edit/' . (int) ($code['id'] ?? 0)) ?>">Modifier</a>
+                    <a class="btn-action-del" href="<?= base_url('/admin/codes/delete/' . (int) ($code['id'] ?? 0)) ?>" onclick="return confirm('Supprimer ce code ?')">Supprimer</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -198,7 +209,7 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
       <div class="card mt-24" id="parametres">
         <div class="card-header-blue" style="justify-content:space-between;gap:12px;flex-wrap:wrap;">
           <h2 class="card-title-white">CRUD des paramètres nécessaires</h2>
-          <button class="btn-primary-sm" type="button">+ Nouveau paramètre</button>
+          <a class="btn-primary-sm" href="<?= base_url('/admin/parametres/create') ?>">+ Nouveau paramètre</a>
         </div>
         <div class="card-body p0">
           <table class="data-table">
@@ -212,7 +223,10 @@ $maxSignup = max(array_map(static fn ($item) => (int) ($item['value'] ?? 0), $si
                   <td><strong><?= esc((string) ($parameter['libelle'] ?? '')) ?></strong></td>
                   <td><?= esc((string) ($parameter['valeur'] ?? '')) ?></td>
                   <td><?= esc((string) ($parameter['description'] ?? '')) ?></td>
-                  <td class="td-actions"><button class="btn-action-edit" type="button">Modifier</button> <button class="btn-action-del" type="button">Supprimer</button></td>
+                  <td class="td-actions">
+                    <a class="btn-action-edit" href="<?= base_url('/admin/parametres/edit/' . (int) ($parameter['id'] ?? 0)) ?>">Modifier</a>
+                    <a class="btn-action-del" href="<?= base_url('/admin/parametres/delete/' . (int) ($parameter['id'] ?? 0)) ?>" onclick="return confirm('Supprimer ce paramètre ?')">Supprimer</a>
+                  </td>
                 </tr>
               <?php endforeach; ?>
             </tbody>

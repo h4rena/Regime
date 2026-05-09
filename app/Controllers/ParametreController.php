@@ -40,7 +40,7 @@ class ParametreController extends BaseController
             'description' => $this->request->getPost('description') ?? null,
         ]);
 
-        return redirect()->to('/admin/parametres')->with('success', 'Paramètre créé.');
+        return redirect()->to('/admin')->with('success', 'Paramètre créé.');
     }
 
     public function edit($id)
@@ -76,7 +76,7 @@ class ParametreController extends BaseController
             'description' => $this->request->getPost('description') ?? null,
         ]);
 
-        return redirect()->to('/admin/parametres')->with('success', 'Paramètre mis à jour.');
+        return redirect()->to('/admin')->with('success', 'Paramètre mis à jour.');
     }
 
     public function delete($id)
@@ -84,6 +84,6 @@ class ParametreController extends BaseController
         $model = new ParametreModel();
         $model->delete((int) $id);
 
-        return redirect()->to('/admin/parametres')->with('success', 'Paramètre supprimé.');
+        return redirect()->to('/admin')->with('success', 'Paramètre supprimé.');
     }
 }

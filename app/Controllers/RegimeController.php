@@ -40,7 +40,7 @@ class RegimeController extends BaseController
             'prix' => $this->request->getPost('prix'),
         ]);
 
-        return redirect()->to('/admin/regimes')->with('success', 'Régime créé.');
+        return redirect()->to('/admin')->with('success', 'Régime créé.');
     }
 
     public function edit($id)
@@ -76,7 +76,7 @@ class RegimeController extends BaseController
             'prix' => $this->request->getPost('prix'),
         ]);
 
-        return redirect()->to('/admin/regimes')->with('success', 'Régime mis à jour.');
+        return redirect()->to('/admin')->with('success', 'Régime mis à jour.');
     }
 
     public function delete($id)
@@ -84,6 +84,6 @@ class RegimeController extends BaseController
         $model = new RegimeModel();
         $model->delete((int) $id);
 
-        return redirect()->to('/admin/regimes')->with('success', 'Régime supprimé.');
+        return redirect()->to('/admin')->with('success', 'Régime supprimé.');
     }
 }

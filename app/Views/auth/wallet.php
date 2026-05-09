@@ -14,6 +14,7 @@
   <?php
   $walletAddUrl = base_url('/wallet/ajouter');
   $currentUser = session()->get('user') ?? [];
+  $isAdmin = (($currentUser['role'] ?? null) === 'Admin');
   $displayName = trim(($currentUser['prenom'] ?? '') . ' ' . ($currentUser['nom'] ?? ''));
   $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
   $transactions = isset($transactions) && is_array($transactions) ? $transactions : [];
@@ -27,6 +28,10 @@
         <li><a href="<?= base_url('/regimes') ?>" class="nav-link">Régimes</a></li>
         <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
         <li><a href="<?= base_url('/wallet') ?>" class="nav-link active">Portefeuille</a></li>
+        <?php if ($isAdmin): ?>
+          <li><a href="<?= base_url('/admin') ?>" class="nav-link">Dashboard</a></li>
+          <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+        <?php endif; ?>
       </ul>
       <div class="nav-actions">
         <span class="nav-user-name"><?= esc($displayName) ?></span>

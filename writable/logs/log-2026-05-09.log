@@ -1983,3 +1983,313 @@ in SYSTEMPATH/Database/BaseConnection.php on line 606.
 12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
 13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-09 21:12:33 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "used_at" is not nullable, but null was passed.
+[Method: GET, Route: admin/codes/edit/4]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 156.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'used_at', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(206): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(615): CodeIgniter\Model->doFind(true, 4)
+ 5 APPPATH\Controllers\WalletCodeController.php(90): CodeIgniter\BaseModel->find(4)
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\WalletCodeController->edit('4')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletCodeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:12:44 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "used_at" is not nullable, but null was passed.
+[Method: GET, Route: admin/codes/edit/3]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 156.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'used_at', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(206): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(615): CodeIgniter\Model->doFind(true, 3)
+ 5 APPPATH\Controllers\WalletCodeController.php(90): CodeIgniter\BaseModel->find(3)
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\WalletCodeController->edit('3')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletCodeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:12:53 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "used_at" is not nullable, but null was passed.
+[Method: GET, Route: admin/codes/edit/2]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 156.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'used_at', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(206): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(615): CodeIgniter\Model->doFind(true, 2)
+ 5 APPPATH\Controllers\WalletCodeController.php(90): CodeIgniter\BaseModel->find(2)
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\WalletCodeController->edit('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletCodeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:14:08 --> CodeIgniter\Filters\Exceptions\FilterException: "auth role" filter must have a matching alias defined.
+[Method: GET, Route: admin/codes]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth role:Admin', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:14:18 --> CodeIgniter\Filters\Exceptions\FilterException: "auth role" filter must have a matching alias defined.
+[Method: GET, Route: admin]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth role:Admin', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:14:58 --> CodeIgniter\Filters\Exceptions\FilterException: "auth role" filter must have a matching alias defined.
+[Method: GET, Route: admin]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth role:Admin', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:18:43 --> CodeIgniter\Filters\Exceptions\FilterException: "auth role" filter must have a matching alias defined.
+[Method: GET, Route: admin]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth role:Admin', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:20:38 --> CodeIgniter\Filters\Exceptions\FilterException: "auth,role" filter must have a matching alias defined.
+[Method: CLI, Route: routes]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth,role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth,role:Admin', 'before')
+ 3 SYSTEMPATH\Commands\Utilities\Routes\FilterFinder.php(58): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\Commands\Utilities\Routes\FilterCollector.php(78): CodeIgniter\Commands\Utilities\Routes\FilterFinder->find('admin')
+ 5 SYSTEMPATH\Commands\Utilities\Routes.php(110): CodeIgniter\Commands\Utilities\Routes\FilterCollector->get('GET', 'admin')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Utilities\Routes->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('routes', [])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:20:46 --> CodeIgniter\Filters\Exceptions\FilterException: "auth,role" filter must have a matching alias defined.
+[Method: CLI, Route: routes]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth,role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth,role:Admin', 'before')
+ 3 SYSTEMPATH\Commands\Utilities\Routes\FilterFinder.php(58): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\Commands\Utilities\Routes\FilterCollector.php(78): CodeIgniter\Commands\Utilities\Routes\FilterFinder->find('admin')
+ 5 SYSTEMPATH\Commands\Utilities\Routes.php(110): CodeIgniter\Commands\Utilities\Routes\FilterCollector->get('GET', 'admin')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Utilities\Routes->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('routes', [])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:23:27 --> CodeIgniter\Filters\Exceptions\FilterException: "auth,role" filter must have a matching alias defined.
+[Method: CLI, Route: routes]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth,role')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth,role:Admin', 'before')
+ 3 SYSTEMPATH\Commands\Utilities\Routes\FilterFinder.php(58): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\Commands\Utilities\Routes\FilterCollector.php(78): CodeIgniter\Commands\Utilities\Routes\FilterFinder->find('admin')
+ 5 SYSTEMPATH\Commands\Utilities\Routes.php(110): CodeIgniter\Commands\Utilities\Routes\FilterCollector->get('GET', 'admin')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Utilities\Routes->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('routes', [])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2026-05-09 21:26:10 --> BackofficeController error: Undefined variable $displayName
+CRITICAL - 2026-05-09 21:26:10 --> ErrorException: Undefined variable $displayName
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 64.
+ 1 APPPATH\Views\admin\backoffice.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $displayName', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php', 64)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/backoffice', [], true)
+ 5 APPPATH\Controllers\BackofficeController.php(127): view('admin/backoffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\BackofficeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BackofficeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:26:21 --> BackofficeController error: Undefined variable $displayName
+CRITICAL - 2026-05-09 21:26:21 --> ErrorException: Undefined variable $displayName
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 64.
+ 1 APPPATH\Views\admin\backoffice.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $displayName', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php', 64)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/backoffice', [], true)
+ 5 APPPATH\Controllers\BackofficeController.php(127): view('admin/backoffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\BackofficeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BackofficeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:26:37 --> BackofficeController error: Undefined variable $displayName
+CRITICAL - 2026-05-09 21:26:37 --> ErrorException: Undefined variable $displayName
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 64.
+ 1 APPPATH\Views\admin\backoffice.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $displayName', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php', 64)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/backoffice', [], true)
+ 5 APPPATH\Controllers\BackofficeController.php(127): view('admin/backoffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\BackofficeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BackofficeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:27:10 --> BackofficeController error: Undefined variable $displayName
+CRITICAL - 2026-05-09 21:27:10 --> ErrorException: Undefined variable $displayName
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 64.
+ 1 APPPATH\Views\admin\backoffice.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $displayName', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php', 64)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/backoffice', [], true)
+ 5 APPPATH\Controllers\BackofficeController.php(127): view('admin/backoffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\BackofficeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BackofficeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:27:31 --> BackofficeController error: Undefined variable $displayName
+CRITICAL - 2026-05-09 21:27:31 --> ErrorException: Undefined variable $displayName
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 64.
+ 1 APPPATH\Views\admin\backoffice.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $displayName', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php', 64)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/backoffice', [], true)
+ 5 APPPATH\Controllers\BackofficeController.php(127): view('admin/backoffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\BackofficeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BackofficeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:30:07 --> BackofficeController error: Undefined variable $displayName
+CRITICAL - 2026-05-09 21:30:07 --> ErrorException: Undefined variable $displayName
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 67.
+ 1 APPPATH\Views\admin\backoffice.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $displayName', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php', 67)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\backoffice.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/backoffice', [], true)
+ 5 APPPATH\Controllers\BackofficeController.php(127): view('admin/backoffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\BackofficeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BackofficeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:35:08 --> ErrorException: Cannot declare class App\Controllers\BackofficeController, because the name is already in use
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-05-09 21:35:30 --> ErrorException: Cannot declare class App\Controllers\BackofficeController, because the name is already in use
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-05-09 21:35:31 --> ErrorException: Cannot declare class App\Controllers\BackofficeController, because the name is already in use
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-05-09 21:35:44 --> ErrorException: Cannot declare class App\Controllers\BackofficeController, because the name is already in use
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\backoffice.php on line 5.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-05-09 21:40:37 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+CRITICAL - 2026-05-09 21:40:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\DashbordController.php(52): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:41:19 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+CRITICAL - 2026-05-09 21:41:19 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\DashbordController.php(52): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:41:56 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+CRITICAL - 2026-05-09 21:41:56 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\DashbordController.php(52): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:44:21 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "used_at" is not nullable, but null was passed.
+[Method: GET, Route: admin/codes/edit/3]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 156.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'used_at', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(206): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(615): CodeIgniter\Model->doFind(true, 3)
+ 5 APPPATH\Controllers\WalletCodeController.php(103): CodeIgniter\BaseModel->find(3)
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\WalletCodeController->edit('3')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletCodeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 21:44:50 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "used_at" is not nullable, but null was passed.
+[Method: GET, Route: admin/codes/edit/2]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 156.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'used_at', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(206): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(615): CodeIgniter\Model->doFind(true, 2)
+ 5 APPPATH\Controllers\WalletCodeController.php(103): CodeIgniter\BaseModel->find(2)
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\WalletCodeController->edit('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletCodeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:49:45 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+CRITICAL - 2026-05-09 21:49:45 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\DashbordController.php(52): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-09 21:58:29 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+ERROR - 2026-05-09 21:58:39 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+ERROR - 2026-05-09 21:58:56 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
