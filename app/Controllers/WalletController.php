@@ -21,10 +21,29 @@ class WalletController extends BaseController
 
         $walletModel = new WalletModel();
 
-        $wallets = $walletModel->getWalletUser($userId);
+        $wallets = $walletModel->ensureWalletExists((int) $userId);
+        $transactions = $walletModel->getTransactionHistory((int) $userId, 20);
+
+        $runningBalance = (float) ($wallets['montant'] ?? 0);
+        foreach ($transactions as $index => $transaction) {
+            $amount = (float) ($transaction['montant'] ?? 0);
+            $type = (string) ($transaction['type'] ?? 'credit');
+
+            $transactions[$index]['description'] = $type === 'debit'
+                ? 'Paiement portefeuille'
+                : 'Recharge portefeuille';
+            $transactions[$index]['balance_after'] = $runningBalance;
+
+            if ($type === 'debit') {
+                $runningBalance += $amount;
+            } else {
+                $runningBalance -= $amount;
+            }
+        }
 
         return view('auth/wallet', [
-            'wallets' => $wallets
+            'wallets'      => $wallets,
+            'transactions'  => $transactions,
         ]);
     }
 
@@ -72,9 +91,15 @@ class WalletController extends BaseController
         // Récupération du nouveau solde
         $walletModel = new WalletModel();
 
-        $wallet = $walletModel->getWalletUser($userId);
+        $wallet = $walletModel->ensureWalletExists((int) $userId);
 
         $solde = $wallet['montant'] ?? 0;
+
+        $currentUser = session()->get('user') ?? [];
+        if (! empty($currentUser['id'])) {
+            $currentUser['wallet_balance'] = $solde;
+            session()->set('user', $currentUser);
+        }
 
         // AJAX => retour JSON
         if ($this->request->isAJAX()) {

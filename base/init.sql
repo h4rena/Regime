@@ -94,7 +94,7 @@ CREATE TABLE wallet_transactions (
 CREATE TABLE wallet (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNIQUE NOT NULL,
-    type ENUM('golde', 'normal') DEFAULT 'normal',
+    type ENUM('gold', 'normal') DEFAULT 'normal',
     montant DECIMAL(10,2) DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -107,14 +107,6 @@ CREATE TABLE parametres (
     type VARCHAR(20) DEFAULT 'text',
     description TEXT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-CREATE TABLE wallet (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT UNIQUE,
-    type ENUM('gold', 'normal') DEFAULT 'normal',
-    montant DECIMAL(10,2) DEFAULT 0,
-    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE statut(

@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1778348068;_ci_previous_url|s:28:"http://localhost:8080/profil";user|a:10:{s:2:"id";s:1:"4";s:3:"nom";s:4:"test";s:6:"prenom";s:4:"test";s:5:"email";s:14:"test@gmail.com";s:8:"genre_id";s:1:"2";s:14:"Date_naissance";s:10:"2003-01-29";s:7:"id_role";s:1:"2";s:4:"role";s:11:"Utilisateur";s:7:"is_gold";b:0;s:14:"wallet_balance";d:0;}

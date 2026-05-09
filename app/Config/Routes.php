@@ -10,6 +10,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/accueil', 'Home::index');
 $routes->get('/profil', 'Home::profil', ['filter' => 'auth']);
+$routes->get('/profil/pdf', 'Home::profilPdf', ['filter' => 'auth']);
 
 // ═══════════════════════════════════════════════════════
 //  ROUTES PUBLIQUES — aucun filtre requis
@@ -22,34 +23,33 @@ $routes->get('/deconnexion',     'AuthController::logout');
 $routes->post('/gold/activer',    'AuthController::activateGold');
 
 // Back office
-$routes->get('/admin', 'BackofficeController::index', ['filter' => 'auth,role:Admin']);
-$routes->get('/backoffice', 'BackofficeController::index', ['filter' => 'auth,role:Admin']);
-// Backoffice
-$routes->get('/admin', 'BackofficeController::index', ['filter' => 'auth,role:Admin']);
+$adminFilters = ['auth', 'role:Admin'];
+$routes->get('/admin', 'BackofficeController::index', ['filter' => $adminFilters]);
+$routes->get('/backoffice', 'BackofficeController::index', ['filter' => $adminFilters]);
 
 // Régimes CRUD
-$routes->get('/admin/regimes', 'RegimeController::index', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/regimes/create', 'RegimeController::create', ['filter' => 'auth,role:Admin']);
-$routes->post('/admin/regimes/store', 'RegimeController::store', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/regimes/edit/(:num)', 'RegimeController::edit/$1', ['filter' => 'auth,role:Admin']);
-$routes->post('/admin/regimes/update/(:num)', 'RegimeController::update/$1', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/regimes/delete/(:num)', 'RegimeController::delete/$1', ['filter' => 'auth,role:Admin']);
+$routes->get('/admin/regimes', 'RegimeController::index', ['filter' => $adminFilters]);
+$routes->get('/admin/regimes/create', 'RegimeController::create', ['filter' => $adminFilters]);
+$routes->post('/admin/regimes/store', 'RegimeController::store', ['filter' => $adminFilters]);
+$routes->get('/admin/regimes/edit/(:num)', 'RegimeController::edit/$1', ['filter' => $adminFilters]);
+$routes->post('/admin/regimes/update/(:num)', 'RegimeController::update/$1', ['filter' => $adminFilters]);
+$routes->get('/admin/regimes/delete/(:num)', 'RegimeController::delete/$1', ['filter' => $adminFilters]);
 
 // Activités CRUD
-$routes->get('/admin/activites', 'ActiviteController::index', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/activites/create', 'ActiviteController::create', ['filter' => 'auth,role:Admin']);
-$routes->post('/admin/activites/store', 'ActiviteController::store', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/activites/edit/(:num)', 'ActiviteController::edit/$1', ['filter' => 'auth,role:Admin']);
-$routes->post('/admin/activites/update/(:num)', 'ActiviteController::update/$1', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/activites/delete/(:num)', 'ActiviteController::delete/$1', ['filter' => 'auth,role:Admin']);
+$routes->get('/admin/activites', 'ActiviteController::index', ['filter' => $adminFilters]);
+$routes->get('/admin/activites/create', 'ActiviteController::create', ['filter' => $adminFilters]);
+$routes->post('/admin/activites/store', 'ActiviteController::store', ['filter' => $adminFilters]);
+$routes->get('/admin/activites/edit/(:num)', 'ActiviteController::edit/$1', ['filter' => $adminFilters]);
+$routes->post('/admin/activites/update/(:num)', 'ActiviteController::update/$1', ['filter' => $adminFilters]);
+$routes->get('/admin/activites/delete/(:num)', 'ActiviteController::delete/$1', ['filter' => $adminFilters]);
 
 // Paramètres CRUD
-$routes->get('/admin/parametres', 'ParametreController::index', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/parametres/create', 'ParametreController::create', ['filter' => 'auth,role:Admin']);
-$routes->post('/admin/parametres/store', 'ParametreController::store', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/parametres/edit/(:num)', 'ParametreController::edit/$1', ['filter' => 'auth,role:Admin']);
-$routes->post('/admin/parametres/update/(:num)', 'ParametreController::update/$1', ['filter' => 'auth,role:Admin']);
-$routes->get('/admin/parametres/delete/(:num)', 'ParametreController::delete/$1', ['filter' => 'auth,role:Admin']);
+$routes->get('/admin/parametres', 'ParametreController::index', ['filter' => $adminFilters]);
+$routes->get('/admin/parametres/create', 'ParametreController::create', ['filter' => $adminFilters]);
+$routes->post('/admin/parametres/store', 'ParametreController::store', ['filter' => $adminFilters]);
+$routes->get('/admin/parametres/edit/(:num)', 'ParametreController::edit/$1', ['filter' => $adminFilters]);
+$routes->post('/admin/parametres/update/(:num)', 'ParametreController::update/$1', ['filter' => $adminFilters]);
+$routes->get('/admin/parametres/delete/(:num)', 'ParametreController::delete/$1', ['filter' => $adminFilters]);
 
 // Inscription — Étape 1 (informations personnelles)
 $routes->get('/inscription',     'AuthController::registerForm');
@@ -72,3 +72,4 @@ $routes->post('/wallet/ajouter', 'WalletController::ajouterMontant', ['filter' =
 // Public regimes pages
 $routes->get('/regimes', 'RegimeFrontend::index');
 $routes->get('/regimes/(:num)', 'RegimeFrontend::show/$1');
+$routes->post('/regimes/souscrire/(:num)', 'RegimeFrontend::subscribe/$1', ['filter' => 'auth']);

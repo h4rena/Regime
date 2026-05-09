@@ -111,7 +111,16 @@ public function updateWalletCode($code, $userId)
 
     // Crédite le wallet de l'utilisateur (increment)
     $Wallet = new WalletModel();
+
+    $this->db->transStart();
     $Wallet->updateMontantWallet($montant, $userId);
+
+    $this->db->table('wallet_transactions')->insert([
+        'user_id' => (int) $userId,
+        'montant' => (float) $montant,
+        'type'    => 'credit',
+    ]);
+    $this->db->transComplete();
 
     return [
         'status'  => 'success',

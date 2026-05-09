@@ -41,7 +41,7 @@ class WalletModel extends Model
     protected $validationRules      = [
         'user_id' => 'required|integer',
         'montant' => 'required|decimal',
-        'type'    => 'in_list[golde,normal]'
+        'type'    => 'in_list[gold,normal]'
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
@@ -76,18 +76,79 @@ class WalletModel extends Model
 
         return $wallet;
     }
- public function updateMontantWallet($montant, $userId)
-{
-    if (empty($userId)) {
-        return false;
+
+    public function ensureWalletExists(int $userId): array
+    {
+        $wallet = $this->where('user_id', $userId)->first();
+
+        if (! empty($wallet)) {
+            return $wallet;
+        }
+
+        $walletId = $this->insert([
+            'user_id' => $userId,
+            'type'    => 'normal',
+            'montant' => 0,
+        ], true);
+
+        if (! $walletId) {
+            return ['user_id' => $userId, 'montant' => 0, 'type' => 'normal'];
+        }
+
+        return $this->find($walletId) ?? ['user_id' => $userId, 'montant' => 0, 'type' => 'normal'];
     }
 
-    $montant = (float)$montant;
+    public function getTransactionHistory(int $userId, int $limit = 20): array
+    {
+        if ($userId <= 0) {
+            return [];
+        }
 
-    return $this->db->table('wallet')
-        ->where('user_id', $userId)
-        ->set('montant', "montant + $montant", false)
-        ->update();
-}
+        return $this->db->table('wallet_transactions')
+            ->where('user_id', $userId)
+            ->orderBy('created_at', 'DESC')
+            ->orderBy('id', 'DESC')
+            ->limit($limit)
+            ->get()
+            ->getResultArray();
+    }
+
+    public function updateMontantWallet($montant, $userId)
+    {
+        return $this->changeWalletBalance((int) $userId, (float) $montant, 'credit');
+    }
+
+    public function debitMontantWallet($montant, $userId)
+    {
+        return $this->changeWalletBalance((int) $userId, (float) $montant, 'debit');
+    }
+
+    private function changeWalletBalance(int $userId, float $amount, string $direction): bool
+    {
+        if ($userId <= 0 || $amount <= 0) {
+            return false;
+        }
+
+        $wallet = $this->ensureWalletExists($userId);
+        $currentBalance = (float) ($wallet['montant'] ?? 0);
+
+        if ($direction === 'debit' && $currentBalance < $amount) {
+            return false;
+        }
+
+        $newBalance = $direction === 'debit'
+            ? $currentBalance - $amount
+            : $currentBalance + $amount;
+
+        $db = $this->db;
+        $db->transStart();
+
+        $this->where('user_id', $userId)->set(['montant' => $newBalance])->update();
+        $db->table('users')->where('id', $userId)->update(['wallet_balance' => $newBalance]);
+
+        $db->transComplete();
+
+        return $db->transStatus();
+    }
 
 }

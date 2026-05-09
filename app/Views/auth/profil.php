@@ -161,8 +161,8 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
                 <div class="regime-item <?= isset($r['featured']) && $r['featured'] ? 'featured' : '' ?>">
                   <div class="regime-item-top">
                     <div>
-                      <h3 class="regime-name"><?= esc($r['nom']) ?></h3>
-                      <p class="regime-meta"><?= esc((int)$r['duree_jours']) ?> jours · <?= esc($r['variation_poids']) ?> kg</p>
+                      <h3 class="regime-name"><?= esc((string) ($r['nom'] ?? '')) ?></h3>
+                      <p class="regime-meta"><?= esc((string) ((int) ($r['duree_jours'] ?? 0))) ?> jours · <?= esc((string) ($r['variation_poids'] ?? '')) ?> kg</p>
                     </div>
                     <div class="regime-pricing">
                       <?php if ($isGold): ?>
@@ -199,7 +199,7 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
               <p class="export-title">Exporter mon programme</p>
               <p class="export-sub">Régime complet + activités sportives en PDF</p>
             </div>
-            <button class="btn-export">↓ PDF</button>
+            <a class="btn-export" href="<?= base_url('/profil/pdf') ?>">↓ PDF</a>
           </div>
         </div>
 

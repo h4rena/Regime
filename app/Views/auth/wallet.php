@@ -11,18 +11,26 @@
 
 <body>
 
+  <?php
+  $walletAddUrl = base_url('/wallet/ajouter');
+  $currentUser = session()->get('user') ?? [];
+  $displayName = trim(($currentUser['prenom'] ?? '') . ' ' . ($currentUser['nom'] ?? ''));
+  $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
+  $transactions = isset($transactions) && is_array($transactions) ? $transactions : [];
+  ?>
+
   <nav class="navbar">
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan</div>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Accueil</a></li>
-        <li><a href="regimes.html" class="nav-link">Régimes</a></li>
-        <li><a href="profil.html" class="nav-link">Mon profil</a></li>
-        <li><a href="wallet.html" class="nav-link active">Portefeuille</a></li>
+        <li><a href="<?= base_url('/') ?>" class="nav-link">Accueil</a></li>
+        <li><a href="<?= base_url('/regimes') ?>" class="nav-link">Régimes</a></li>
+        <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
+        <li><a href="<?= base_url('/wallet') ?>" class="nav-link active">Portefeuille</a></li>
       </ul>
       <div class="nav-actions">
-        <span class="nav-user-name">Ravo A.</span>
-        <a href="login.html" class="btn-nav-ghost">Déconnexion</a>
+        <span class="nav-user-name"><?= esc($displayName) ?></span>
+        <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
       </div>
     </div>
   </nav>
@@ -73,7 +81,7 @@
           <p class="form-help">Entrez le code de recharge reçu pour créditer votre portefeuille.</p>
           <div class="code-input-group">
             <input type="text" class="form-input code-input-field" id="codeInput" placeholder="NUT-2026-XXXX" maxlength="16" />
-            <button class="btn-primary-sm" onclick="validerCode()">Valider</button>
+            <button class="btn-primary-sm" type="button" onclick="validerCode()">Valider</button>
           </div>
           <div id="codeMessage" class="code-message" style="display:none"></div>
         </div>
@@ -97,30 +105,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="td-muted">05/05/2026</td>
-                <td>Code NUT-2026-B3</td>
-                <td class="td-green">+10 000 Ar</td>
-                <td>35 000 Ar</td>
-              </tr>
-              <tr>
-                <td class="td-muted">02/05/2026</td>
-                <td>Régime Équilibré Marin</td>
-                <td class="td-red">−28 000 Ar</td>
-                <td>25 000 Ar</td>
-              </tr>
-              <tr>
-                <td class="td-muted">28/04/2026</td>
-                <td>Code NUT-2026-A1</td>
-                <td class="td-green">+5 000 Ar</td>
-                <td>53 000 Ar</td>
-              </tr>
-              <tr>
-                <td class="td-muted">20/04/2026</td>
-                <td>Code NUT-2026-D9</td>
-                <td class="td-green">+50 000 Ar</td>
-                <td>48 000 Ar</td>
-              </tr>
+              <?php if (! empty($transactions)): ?>
+                <?php foreach ($transactions as $transaction): ?>
+                  <?php
+                    $type = (string) ($transaction['type'] ?? 'credit');
+                    $amount = (float) ($transaction['montant'] ?? 0);
+                    $date = ! empty($transaction['created_at']) ? date('d/m/Y', strtotime((string) $transaction['created_at'])) : '—';
+                    $sign = $type === 'debit' ? '−' : '+';
+                    $amountClass = $type === 'debit' ? 'td-red' : 'td-green';
+                    $balance = (float) ($transaction['balance_after'] ?? 0);
+                  ?>
+                  <tr>
+                    <td class="td-muted"><?= esc($date) ?></td>
+                    <td><?= esc((string) ($transaction['description'] ?? 'Transaction')) ?></td>
+                    <td class="<?= esc($amountClass) ?>"><?= esc($sign . number_format($amount, 0, ',', ' ')) ?> Ar</td>
+                    <td><?= esc(number_format($balance, 0, ',', ' ')) ?> Ar</td>
+                  </tr>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <tr>
+                  <td colspan="4" class="td-muted" style="text-align:center;padding:24px 16px;">Aucune transaction pour le moment.</td>
+                </tr>
+              <?php endif; ?>
             </tbody>
           </table>
         </div>
@@ -148,7 +154,7 @@
         return;
       }
 
-      fetch('/wallet/ajouter', {
+      fetch('<?= $walletAddUrl ?>', {
 
           method: 'POST',
 

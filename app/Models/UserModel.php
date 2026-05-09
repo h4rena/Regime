@@ -25,6 +25,7 @@ class UserModel extends Model
     ];
 
     protected $useTimestamps = false;
+    protected $skipValidation = true;
 
     protected $validationRules = [
         'nom'            => 'permit_empty|min_length[2]|max_length[100]',
@@ -36,5 +37,4 @@ class UserModel extends Model
     ];
 
     protected $validationMessages = [];
-    protected $skipValidation     = false;
 }

@@ -24,3 +24,25 @@ INSERT INTO regime (nom, variation_poids, duree_jours, prix) VALUES
 ('Détox Marin Intensif', -2.50, 14, 23000.00),
 ('Équilibre Total', 0.00, 30, 18000.00),
 ('Programme Gold Premium', -4.00, 45, 75000.00);
+
+-- Données de test en Ariary (Ar)
+INSERT INTO users (id_role, nom, prenom, email, password, genre_id, Date_naissance, wallet_balance, is_gold) VALUES
+(1, 'Admin', 'Test', 'admin@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 1, '1990-01-01', 250000, 1),
+(2, 'Jean', 'Rakoto', 'jean.rakoto@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 2, '1995-06-15', 125000, 0),
+(2, 'Mina', 'Rasoa', 'mina.rasoa@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 3, '1998-11-20', 80000, 0);
+
+INSERT INTO wallet (user_id, type, montant) VALUES
+(1, 'gold', 250000),
+(2, 'normal', 125000),
+(3, 'normal', 80000);
+
+INSERT INTO wallet_codes (code, montant, is_used, used_by, used_at) VALUES
+('TEST5000', 5000, FALSE, NULL, NULL),
+('TEST25000', 25000, FALSE, NULL, NULL),
+('TEST50000', 50000, FALSE, NULL, NULL),
+('TEST100000', 100000, FALSE, NULL, NULL);
+
+INSERT INTO wallet_transactions (user_id, montant, type) VALUES
+(2, 25000, 'credit'),
+(2, 50000, 'credit'),
+(3, 100000, 'credit');

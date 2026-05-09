@@ -92,6 +92,8 @@
             <small class="field-error" data-error-for="password"><?= esc((string) ($errors['password'] ?? '')) ?></small>
           </div>
 
+
+
           <button type="submit" class="btn-primary-full" data-submit-btn>Suivant: Sante</button>
         </form>
 

@@ -1,4 +1,10 @@
-<?php $isGold = $isGold ?? false; $regimes = $regimes ?? []; ?>
+<?php
+$isGold = $isGold ?? false;
+$regimes = $regimes ?? [];
+$currentUser = session()->get('user') ?? [];
+$displayName = trim(($currentUser['prenom'] ?? '') . ' ' . ($currentUser['nom'] ?? ''));
+$displayName = $displayName !== '' ? $displayName : 'Utilisateur';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,9 +21,11 @@
         <li><a href="<?= base_url('/') ?>" class="nav-link">Accueil</a></li>
         <li><a href="<?= base_url('/regimes') ?>" class="nav-link active">Régimes</a></li>
         <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
+        <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
       </ul>
       <div class="nav-actions">
-        <?php if (session()->get('user')): ?>
+        <span class="nav-user-name"><?= esc($displayName) ?></span>
+        <?php if (! empty($currentUser['id'])): ?>
           <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
         <?php else: ?>
           <a href="<?= base_url('/login') ?>" class="btn-nav-ghost">Connexion</a>
@@ -43,8 +51,8 @@
         <?php foreach ($regimes as $r): ?>
           <div class="regime-card-full">
             <div class="regime-card-top">
-              <h2 class="regime-card-name"><?= esc($r['nom']) ?></h2>
-              <p class="regime-card-meta"><?= esc((int)$r['duree_jours']) ?> jours · Variation <?= esc($r['variation_poids']) ?> kg</p>
+              <h2 class="regime-card-name"><?= esc((string) ($r['nom'] ?? '')) ?></h2>
+              <p class="regime-card-meta"><?= esc((string) ((int) ($r['duree_jours'] ?? 0))) ?> jours · Variation <?= esc((string) ($r['variation_poids'] ?? '')) ?> kg</p>
               <p class="regime-card-desc">Description courte du régime.</p>
             </div>
             <div class="regime-card-footer">
@@ -56,7 +64,7 @@
                   <div><span class="rcp-price"><?= esc(number_format((float)$r['prix'],0,' ', ' ')) ?> Ar</span></div>
                 <?php endif; ?>
               </div>
-              <div class="regime-card-changes"><span class="rcc"><?= esc($r['variation_poids']) ?> kg</span></div>
+              <div class="regime-card-changes"><span class="rcc"><?= esc((string) ($r['variation_poids'] ?? '')) ?> kg</span></div>
               <a class="btn-primary-sm" href="<?= base_url('/regimes/' . $r['id']) ?>">Voir</a>
             </div>
           </div>
