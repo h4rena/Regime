@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NutriPlan — Portefeuille</title>
- <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
+  <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
 
   <nav class="navbar">
@@ -40,11 +42,12 @@
             <p class="wbc-label">Solde disponible</p>
             <p class="wbc-amount" id="solde"><?= $wallets['montant'] ?? '0' ?> Ar</p>
             <p class="wbc-sub">Mis à jour aujourd'hui</p>
-            <p class="wbc-amount" id="user_id"><?= $wallets['user_id'] ?? '0' ?> id user actif</p>
-
           </div>
           <div class="wbc-icon">
-            <svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+            <svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24">
+              <rect x="1" y="4" width="22" height="16" rx="2" />
+              <path d="M1 10h22" />
+            </svg>
           </div>
         </div>
       </div>
@@ -75,6 +78,8 @@
           <div id="codeMessage" class="code-message" style="display:none"></div>
         </div>
       </div>
+
+
 
       <!-- TRANSACTIONS -->
       <div class="card mt-16">
@@ -125,28 +130,80 @@
   </main>
 
   <script>
-    const codes = {
-      'NUT-2026-A1': 5000,
-      'NUT-2026-C7': 5000,
-      'NUT-2026-E2': 10000,
-    };
-    let usedCodes = [];
     function validerCode() {
-      const code = document.getElementById('codeInput').value.trim().toUpperCase();
-      const msg = document.getElementById('codeMessage');
-      msg.style.display = 'block';
-      if (!code) { msg.className = 'code-message error'; msg.textContent = 'Veuillez entrer un code.'; return; }
-      if (usedCodes.includes(code)) { msg.className = 'code-message error'; msg.textContent = 'Ce code a déjà été utilisé.'; return; }
-      if (codes[code]) {
-        usedCodes.push(code);
-        msg.className = 'code-message success';
-        msg.textContent = `✓ Code validé ! +${codes[code].toLocaleString()} Ar ajoutés à votre solde.`;
-        document.getElementById('codeInput').value = '';
-      } else {
-        msg.className = 'code-message error';
-        msg.textContent = 'Code invalide ou inexistant.';
+
+      const codeInput = document.getElementById('codeInput');
+
+      const code = codeInput.value.trim();
+
+      const messageDiv = document.getElementById('codeMessage');
+
+      // Vérification champ vide
+      if (code === '') {
+
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Veuillez entrer un code.';
+
+        return;
       }
+
+      fetch('/wallet/ajouter', {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+
+          body: 'code=' + encodeURIComponent(code)
+
+        })
+
+        .then(response => response.json())
+
+        .then(data => {
+
+          messageDiv.style.display = 'block';
+
+          messageDiv.textContent = data.message;
+
+          // Succès
+          if (data.status === 'success') {
+
+            messageDiv.style.color = 'green';
+
+            // Mise à jour automatique du solde
+            document.getElementById('solde').textContent =
+              data.solde + ' Ar';
+
+            // vider input
+            codeInput.value = '';
+
+          }
+
+          // Erreur
+          else {
+
+            messageDiv.style.color = 'red';
+          }
+
+        })
+
+        .catch(error => {
+
+          console.error('Erreur :', error);
+
+          messageDiv.style.display = 'block';
+
+          messageDiv.style.color = 'red';
+
+          messageDiv.textContent =
+            'Une erreur est survenue.';
+        });
     }
   </script>
 </body>
+
 </html>

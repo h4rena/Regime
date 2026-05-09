@@ -76,15 +76,18 @@ class WalletModel extends Model
 
         return $wallet;
     }
-    public function updateMontantWallet($montant, $userId)
-    {
-        if (empty($userId)) {
-            return false;
-        }
-
-        return $this->where('user_id', $userId)
-                    ->set('montant', $montant)
-                    ->update();
+ public function updateMontantWallet($montant, $userId)
+{
+    if (empty($userId)) {
+        return false;
     }
+
+    $montant = (float)$montant;
+
+    return $this->db->table('wallet')
+        ->where('user_id', $userId)
+        ->set('montant', "montant + $montant", false)
+        ->update();
+}
 
 }
