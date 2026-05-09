@@ -68,6 +68,7 @@ $routes->post('/inscription/objectif', 'AuthController::objectif');
 
 //wallet
 $routes->get('/wallet', 'WalletController::afficheWalletUser', ['filter' => 'auth']);
+$routes->post('/wallet/ajouter', 'WalletController::ajouterMontant', ['filter' => 'auth']);
 // Public regimes pages
 $routes->get('/regimes', 'RegimeFrontend::index');
 $routes->get('/regimes/(:num)', 'RegimeFrontend::show/$1');

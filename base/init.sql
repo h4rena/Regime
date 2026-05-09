@@ -95,6 +95,9 @@ CREATE TABLE wallet (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNIQUE NOT NULL,
     type ENUM('golde', 'normal') DEFAULT 'normal',
+    montant DECIMAL(10,2) DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
 CREATE TABLE parametres (
     id INT AUTO_INCREMENT PRIMARY KEY,
