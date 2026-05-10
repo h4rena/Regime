@@ -19,17 +19,40 @@
       </div>
       <div class="form-group">
         <label class="form-label">Variation poids (kg)</label>
-        <input name="variation_poids" class="form-input" value="<?= esc($regime['variation_poids'] ?? '') ?>" required />
+        <input name="variation_poids" class="form-input" type="number" step="0.01" value="<?= esc($regime['variation_poids'] ?? '') ?>" required />
       </div>
       <div class="form-group">
         <label class="form-label">Durée (jours)</label>
-        <input name="duree_jours" class="form-input" value="<?= esc($regime['duree_jours'] ?? '') ?>" required />
+        <input name="duree_jours" class="form-input" type="number" value="<?= esc($regime['duree_jours'] ?? '') ?>" required />
       </div>
       <div class="form-group">
         <label class="form-label">Prix (Ar)</label>
-        <input name="prix" class="form-input" value="<?= esc($regime['prix'] ?? '') ?>" required />
+        <input name="prix" class="form-input" type="number" step="0.01" value="<?= esc($regime['prix'] ?? '') ?>" required />
       </div>
-      <button class="btn-primary-full" type="submit"><?= $mode === 'create' ? 'Créer' : 'Enregistrer' ?></button>
+
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;" />
+      <h3 style="margin-top: 20px; margin-bottom: 15px;">Composition du régime</h3>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+        <div class="form-group">
+          <label class="form-label">% Viande</label>
+          <input name="pourcentage_viande" class="form-input" type="number" step="0.01" min="0" max="100" value="<?= esc($regime['pourcentage_viande'] ?? '25') ?>" required />
+          <small style="color: #666;">Défaut: 25%</small>
+        </div>
+        <div class="form-group">
+          <label class="form-label">% Poisson</label>
+          <input name="pourcentage_poisson" class="form-input" type="number" step="0.01" min="0" max="100" value="<?= esc($regime['pourcentage_poisson'] ?? '40') ?>" required />
+          <small style="color: #666;">Défaut: 40%</small>
+        </div>
+        <div class="form-group">
+          <label class="form-label">% Volaille</label>
+          <input name="pourcentage_volaille" class="form-input" type="number" step="0.01" min="0" max="100" value="<?= esc($regime['pourcentage_volaille'] ?? '35') ?>" required />
+          <small style="color: #666;">Défaut: 35%</small>
+        </div>
+      </div>
+      <small style="color: #999; display: block; margin-top: 10px;">💡 Total recommandé: 100%</small>
+
+      <button class="btn-primary-full" type="submit" style="margin-top: 20px;"><?= $mode === 'create' ? 'Créer' : 'Enregistrer' ?></button>
     </form>
   </main>
 </body>

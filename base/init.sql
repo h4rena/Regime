@@ -55,7 +55,10 @@ CREATE TABLE regime (
     nom VARCHAR(150),
     variation_poids DECIMAL(5,2),
     duree_jours INT,
-    prix DECIMAL(10,2)
+    prix DECIMAL(10,2),
+    pourcentage_viande DECIMAL(5,2) DEFAULT 25,
+    pourcentage_poisson DECIMAL(5,2) DEFAULT 40,
+    pourcentage_volaille DECIMAL(5,2) DEFAULT 35
 );
 
 CREATE TABLE regime_aliment (

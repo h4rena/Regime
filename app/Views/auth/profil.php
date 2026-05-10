@@ -180,14 +180,14 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
                     </div>
                   </div>
                   <div class="macro-bar-full">
-                    <div class="macro-seg" style="width:40%;background:var(--blue-600)"></div>
-                    <div class="macro-seg" style="width:35%;background:var(--blue-400)"></div>
-                    <div class="macro-seg" style="width:25%;background:var(--blue-200)"></div>
+                    <div class="macro-seg" style="width:<?= esc((string)($r['pourcentage_poisson'] ?? '40')) ?>%;background:var(--blue-600)"></div>
+                    <div class="macro-seg" style="width:<?= esc((string)($r['pourcentage_volaille'] ?? '35')) ?>%;background:var(--blue-400)"></div>
+                    <div class="macro-seg" style="width:<?= esc((string)($r['pourcentage_viande'] ?? '25')) ?>%;background:var(--blue-200)"></div>
                   </div>
                   <div class="macro-legend">
-                    <span><span class="macro-dot" style="background:var(--blue-600)"></span>Poisson 40%</span>
-                    <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille 35%</span>
-                    <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande 25%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-600)"></span>Poisson <?= esc((string)($r['pourcentage_poisson'] ?? '40')) ?>%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-400)"></span>Volaille <?= esc((string)($r['pourcentage_volaille'] ?? '35')) ?>%</span>
+                    <span><span class="macro-dot" style="background:var(--blue-200)"></span>Viande <?= esc((string)($r['pourcentage_viande'] ?? '25')) ?>%</span>
                   </div>
                   <a href="<?= base_url('/regimes/' . $r['id']) ?>" class="btn-primary-sm mt-10">Choisir ce régime</a>
                 </div>

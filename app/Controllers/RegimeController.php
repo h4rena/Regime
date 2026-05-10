@@ -26,6 +26,9 @@ class RegimeController extends BaseController
             'variation_poids' => 'required|numeric',
             'duree_jours' => 'required|integer',
             'prix' => 'required|numeric',
+            'pourcentage_viande' => 'required|numeric|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_poisson' => 'required|numeric|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_volaille' => 'required|numeric|greater_than_equal_to[0]|less_than_equal_to[100]',
         ];
 
         if (! $this->validate($rules)) {
@@ -38,6 +41,9 @@ class RegimeController extends BaseController
             'variation_poids' => $this->request->getPost('variation_poids'),
             'duree_jours' => $this->request->getPost('duree_jours'),
             'prix' => $this->request->getPost('prix'),
+            'pourcentage_viande' => $this->request->getPost('pourcentage_viande'),
+            'pourcentage_poisson' => $this->request->getPost('pourcentage_poisson'),
+            'pourcentage_volaille' => $this->request->getPost('pourcentage_volaille'),
         ]);
 
         return redirect()->to('/admin')->with('success', 'Régime créé.');
@@ -62,6 +68,9 @@ class RegimeController extends BaseController
             'variation_poids' => 'required|numeric',
             'duree_jours' => 'required|integer',
             'prix' => 'required|numeric',
+            'pourcentage_viande' => 'required|numeric|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_poisson' => 'required|numeric|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_volaille' => 'required|numeric|greater_than_equal_to[0]|less_than_equal_to[100]',
         ];
 
         if (! $this->validate($rules)) {
@@ -74,6 +83,9 @@ class RegimeController extends BaseController
             'variation_poids' => $this->request->getPost('variation_poids'),
             'duree_jours' => $this->request->getPost('duree_jours'),
             'prix' => $this->request->getPost('prix'),
+            'pourcentage_viande' => $this->request->getPost('pourcentage_viande'),
+            'pourcentage_poisson' => $this->request->getPost('pourcentage_poisson'),
+            'pourcentage_volaille' => $this->request->getPost('pourcentage_volaille'),
         ]);
 
         return redirect()->to('/admin')->with('success', 'Régime mis à jour.');

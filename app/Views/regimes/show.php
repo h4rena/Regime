@@ -63,6 +63,31 @@ $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
 
       <div class="regime-detail">
         <p>Description complète du régime, repas et conseils.</p>
+        
+        <!-- Composition du régime -->
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <h3 style="margin-bottom: 15px; color: #333;">Composition du régime</h3>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px;">
+            <div style="padding: 15px; background: white; border-radius: 6px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+              <div style="font-size: 28px; font-weight: bold; color: #d32f2f; margin-bottom: 5px;"><?= esc((string)($r['pourcentage_viande'] ?? '25')) ?>%</div>
+              <div style="color: #666; font-size: 14px;">Viande</div>
+            </div>
+            <div style="padding: 15px; background: white; border-radius: 6px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+              <div style="font-size: 28px; font-weight: bold; color: #1976d2; margin-bottom: 5px;"><?= esc((string)($r['pourcentage_poisson'] ?? '40')) ?>%</div>
+              <div style="color: #666; font-size: 14px;">Poisson</div>
+            </div>
+            <div style="padding: 15px; background: white; border-radius: 6px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+              <div style="font-size: 28px; font-weight: bold; color: #f57c00; margin-bottom: 5px;"><?= esc((string)($r['pourcentage_volaille'] ?? '35')) ?>%</div>
+              <div style="color: #666; font-size: 14px;">Volaille</div>
+            </div>
+          </div>
+          <div style="width: 100%; height: 30px; border-radius: 4px; overflow: hidden; display: flex;">
+            <div style="width: <?= esc((string)($r['pourcentage_viande'] ?? '25')) ?>%; background: #d32f2f;"></div>
+            <div style="width: <?= esc((string)($r['pourcentage_poisson'] ?? '40')) ?>%; background: #1976d2;"></div>
+            <div style="width: <?= esc((string)($r['pourcentage_volaille'] ?? '35')) ?>%; background: #f57c00;"></div>
+          </div>
+        </div>
+
         <div class="regime-actions">
           <?php if ($isGold): ?>
             <div class="price"><span class="old"><?= esc(number_format((float)$r['prix'],0,' ', ' ')) ?> Ar</span> <strong><?= esc(number_format(round((float)$r['prix']*0.85),0,' ', ' ')) ?> Ar</strong></div>
