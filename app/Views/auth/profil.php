@@ -73,7 +73,7 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
             <span class="badge">Option Gold disponible</span>
           <?php endif; ?>
         </div>
-        <a href="#" class="btn-outline-sm">Modifier le profil</a>
+        <a href="<?= base_url('/profil/edit') ?>" class="btn-outline-sm">Modifier le profil</a>
       </div>
 
       <?php if (! $isGold): ?>

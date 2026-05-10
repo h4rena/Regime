@@ -10,6 +10,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/accueil', 'Home::index');
 $routes->get('/profil', 'Home::profil', ['filter' => 'auth']);
+$routes->get('/profil/edit', 'Home::editProfil', ['filter' => 'auth']);
+$routes->post('/profil/update', 'Home::updateProfil', ['filter' => 'auth']);
 $routes->get('/profil/pdf', 'Home::profilPdf', ['filter' => 'auth']);
 
 // ═══════════════════════════════════════════════════════

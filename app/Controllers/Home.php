@@ -198,4 +198,89 @@ class Home extends BaseController
             ->setHeader('Content-Disposition', 'attachment; filename="' . $fileName . '"')
             ->setBody($pdf);
     }
+
+    public function editProfil()
+    {
+        $currentUser = session()->get('user');
+        if (!$currentUser || empty($currentUser['id'])) {
+            return redirect()->to('/login');
+        }
+
+        $profileData = $this->getProfileData();
+        
+        return view('auth/profil_edit', [
+            'user'  => $profileData['user'] ?? [],
+            'sante' => $profileData['sante'] ?? [],
+        ]);
+    }
+
+    public function updateProfil()
+    {
+        $currentUser = session()->get('user');
+        if (!$currentUser || empty($currentUser['id'])) {
+            return redirect()->to('/login');
+        }
+
+        $userModel = new UserModel();
+        $sante = (new SanteModel())->getByUser((int) $currentUser['id']);
+
+        $prenom = $this->request->getPost('prenom');
+        $nom = $this->request->getPost('nom');
+        $email = $this->request->getPost('email');
+        $poids = $this->request->getPost('poids');
+        $taille = $this->request->getPost('taille');
+
+        $errors = [];
+
+        if (empty($prenom)) {
+            $errors['prenom'] = 'Prénom requis';
+        }
+        if (empty($nom)) {
+            $errors['nom'] = 'Nom requis';
+        }
+        if (empty($email)) {
+            $errors['email'] = 'Email requis';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'Email invalide';
+        }
+
+        if (empty($poids) || !is_numeric($poids)) {
+            $errors['poids'] = 'Poids invalide';
+        }
+        if (empty($taille) || !is_numeric($taille)) {
+            $errors['taille'] = 'Taille invalide';
+        }
+
+        if (!empty($errors)) {
+            return redirect()->back()->withInput()->with('errors', $errors);
+        }
+
+        try {
+            $userModel->update((int) $currentUser['id'], [
+                'prenom' => $prenom,
+                'nom'    => $nom,
+                'email'  => $email,
+            ]);
+
+            if ($sante) {
+                (new SanteModel())->update((int) $sante['id'], [
+                    'poids' => (float) $poids,
+                    'taille' => (int) $taille,
+                ]);
+            } else {
+                (new SanteModel())->insert([
+                    'user_id' => (int) $currentUser['id'],
+                    'poids' => (float) $poids,
+                    'taille' => (int) $taille,
+                ]);
+            }
+
+            $updatedUser = $userModel->find((int) $currentUser['id']);
+            session()->set('user', $updatedUser);
+
+            return redirect()->to('/profil')->with('success', 'Profil mis à jour avec succès');
+        } catch (\Throwable $e) {
+            return redirect()->back()->withInput()->with('error', 'Erreur lors de la mise à jour: ' . $e->getMessage());
+        }
+    }
 }
