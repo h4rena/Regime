@@ -27,7 +27,6 @@ class WalletCodeModel extends Model
     protected array $casts = [
         'montant' => 'float',
         'is_used' => 'boolean',
-        'used_at' => 'datetime',
     ];
     protected array $castHandlers = [];
 

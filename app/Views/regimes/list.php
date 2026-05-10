@@ -19,13 +19,13 @@ $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan</div>
       <ul class="nav-links">
-        <li><a href="<?= base_url('/') ?>" class="nav-link">Accueil</a></li>
-        <li><a href="<?= base_url('/regimes') ?>" class="nav-link active">Régimes</a></li>
+        <li><a href="<?= base_url('/') ?>" class="nav-link active">Accueil</a></li>
+        <li><a href="<?= base_url('/regimes') ?>" class="nav-link">Régimes</a></li>
         <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
         <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
-       <?php if ($isAdmin): ?>
-           <li><a href="<?= base_url('/admin') ?>" class="nav-link">Dashboard</a></li>
-           <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+        <?php if ($isAdmin): ?>
+          <li><a href="<?= base_url('/admin') ?>" class="nav-link">Admin</a></li>
+          <li><a href="<?= base_url('/dashboard') ?>" class="nav-link">Dashboard</a></li>
         <?php endif; ?>
       </ul>
       <div class="nav-actions">

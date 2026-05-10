@@ -1,0 +1,135 @@
+ERROR - 2026-05-10 14:09:45 --> DashbordController::index error: App\Models\DashboardModel::getWalletCodesStats(): Return value must be of type array, stdClass returned
+ERROR - 2026-05-10 14:25:00 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:25:00 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:27:16 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:27:16 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:27:22 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:27:22 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:27:33 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:27:33 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:27:35 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:27:35 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:28:26 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:28:27 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:28:36 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:28:36 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-10 14:29:29 --> DashbordController::index error: Undefined variable $isAdmin
+CRITICAL - 2026-05-10 14:29:29 --> ErrorException: Undefined variable $isAdmin
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashbord.php on line 201.
+ 1 APPPATH\Views\admin\dashbord.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isAdmin', 'G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php', 201)
+ 2 SYSTEMPATH\View\View.php(240): include('G:\\L2-S4\\MrRojo\\Regime\\app\\Views\\admin\\dashbord.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/dashbord', [], true)
+ 5 APPPATH\Controllers\DashbordController.php(52): view('admin/dashbord', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\DashbordController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashbordController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-10 14:36:42 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "used_at" is not nullable, but null was passed.
+[Method: GET, Route: admin/codes/edit/2]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 156.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'used_at', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1984): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(206): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(615): CodeIgniter\Model->doFind(true, 2)
+ 5 APPPATH\Controllers\WalletCodeController.php(103): CodeIgniter\BaseModel->find(2)
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\WalletCodeController->edit('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WalletCodeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

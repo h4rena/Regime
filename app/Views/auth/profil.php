@@ -1,7 +1,8 @@
 <?php
 $user = $user ?? session()->get('user') ?? [];
 $sante = $sante ?? [];
-$isAdmin = (($user['role'] ?? null) === 'Admin');
+$sessionUser = session()->get('user') ?? [];
+$isAdmin = (($sessionUser['role'] ?? $user['role'] ?? null) === 'Admin') || ((int) ($sessionUser['id_role'] ?? $user['id_role'] ?? 0) === 1);
 $isGold = ! empty($user['is_gold']);
 $successMessage = session()->getFlashdata('success');
 $errorMessage = session()->getFlashdata('erreur');
@@ -33,13 +34,13 @@ $objectif = $sante['objectif_nom'] ?? "Atteindre l'IMC idéal";
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan</div>
       <ul class="nav-links">
-        <li><a href="<?= base_url('/') ?>" class="nav-link">Accueil</a></li>
+        <li><a href="<?= base_url('/') ?>" class="nav-link active">Accueil</a></li>
         <li><a href="<?= base_url('/regimes') ?>" class="nav-link">Régimes</a></li>
-        <li><a href="<?= base_url('/profil') ?>" class="nav-link active">Mon profil</a></li>
+        <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
         <li><a href="<?= base_url('/wallet') ?>" class="nav-link">Portefeuille</a></li>
         <?php if ($isAdmin): ?>
-          <li><a href="<?= base_url('/admin') ?>" class="nav-link">Dashboard</a></li>
-          <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+          <li><a href="<?= base_url('/admin') ?>" class="nav-link">Admin</a></li>
+          <li><a href="<?= base_url('/dashboard') ?>" class="nav-link">Dashboard</a></li>
         <?php endif; ?>
       </ul>
       <div class="nav-actions">

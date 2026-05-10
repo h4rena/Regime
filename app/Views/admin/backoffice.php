@@ -61,6 +61,7 @@ if (! empty($signupSeries)) {
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan Admin</div>
       <ul class="nav-links">
+        <li><a href="/profil" class="nav-link active">Mon profil</a></li>
         <li><a href="#dashboard" class="nav-link active">Tableau de bord</a></li>
         <li><a href="#regimes" class="nav-link">Régimes</a></li>
         <li><a href="#activites" class="nav-link">Activités</a></li>

@@ -113,7 +113,7 @@ class DashboardModel extends Model
                 COALESCE(SUM(CASE WHEN is_used = 1 THEN montant ELSE 0 END), 0) AS montant_distribue
             FROM wallet_codes
         ";
-        return $this->db->query($sql)->getRow();
+        return (array) $this->db->query($sql)->getRow();
     }
 
     // ─── GOLD VS NORMAL ──────────────────────────────────────────────────────
@@ -127,7 +127,7 @@ class DashboardModel extends Model
             FROM users
             WHERE id_role = 2
         ";
-        return $this->db->query($sql)->getRow();
+        return (array) $this->db->query($sql)->getRow();
     }
 
     // ─── REVENUS PAR RÉGIME ──────────────────────────────────────────────────
