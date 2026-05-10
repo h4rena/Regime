@@ -18,11 +18,15 @@ $title = $mode === 'create' ? 'Nouveau code portefeuille' : 'Modifier le code po
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan Admin</div>
       <ul class="nav-links">
-        <li><a href="<?= base_url('/admin') ?>" class="nav-link">Dashboard</a></li>
-        <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link active">Codes portefeuille</a></li>
         <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
+        <li><a href="<?= base_url('/dashboard') ?>" class="nav-link">Tableau de bord</a></li>
+        <li><a href="<?= base_url('/admin/regimes') ?>" class="nav-link">Régimes</a></li>
+        <li><a href="<?= base_url('/admin/activites') ?>" class="nav-link">Activités</a></li>
+        <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link active">Codes portefeuille</a></li>
+        <li><a href="<?= base_url('/admin/parametres') ?>" class="nav-link">Paramètres</a></li>
       </ul>
       <div class="nav-actions">
+        <span class="nav-user-name"><?= esc($displayName ?? 'Admin') ?></span>
         <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
       </div>
     </div>

@@ -8,6 +8,24 @@
   <style>.td-actions{white-space:nowrap}</style>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo"><span class="logo-dot"></span>NutriPlan Admin</div>
+      <ul class="nav-links">
+        <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
+        <li><a href="<?= base_url('/dashboard') ?>" class="nav-link">Tableau de bord</a></li>
+        <li><a href="<?= base_url('/admin/regimes') ?>" class="nav-link">Régimes</a></li>
+        <li><a href="<?= base_url('/admin/activites') ?>" class="nav-link active">Activités</a></li>
+        <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+        <li><a href="<?= base_url('/admin/parametres') ?>" class="nav-link">Paramètres</a></li>
+      </ul>
+      <div class="nav-actions">
+        <span class="nav-user-name">Admin</span>
+        <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
+      </div>
+    </div>
+  </nav>
+
   <main class="page-main container">
     <h2>CRUD Activités sportives</h2>
     <?php if (! empty($flash['success'])): ?><div class="alert alert-success"><?= esc($flash['success']) ?></div><?php endif; ?>

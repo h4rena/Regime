@@ -61,13 +61,19 @@ if (! empty($signupSeries)) {
     <div class="nav-inner">
       <div class="nav-logo"><span class="logo-dot"></span>NutriPlan Admin</div>
       <ul class="nav-links">
-        <li><a href="/profil" class="nav-link active">Mon profil</a></li>
-        <li><a href="#dashboard" class="nav-link active">Tableau de bord</a></li>
-        <li><a href="#regimes" class="nav-link">Régimes</a></li>
-        <li><a href="#activites" class="nav-link">Activités</a></li>
-        <li><a href="#wallet-codes" class="nav-link">Codes portefeuille</a></li>
-        <li><a href="#parametres" class="nav-link">Paramètres</a></li>
+        <li><a href="<?= base_url('/profil') ?>" class="nav-link">Mon profil</a></li>
+        <li><a href="<?= base_url('/dashboard') ?>" class="nav-link">Tableau de bord</a></li>
+        <li><a href="<?= base_url('/admin/regimes') ?>" class="nav-link">Régimes</a></li>
+        <li><a href="<?= base_url('/admin/activites') ?>" class="nav-link">Activités</a></li>
+        <li><a href="<?= base_url('/admin/codes') ?>" class="nav-link">Codes portefeuille</a></li>
+        <li><a href="<?= base_url('/admin/parametres') ?>" class="nav-link">Paramètres</a></li>
       </ul>
+      <div class="nav-actions">
+        <span class="nav-user-name"><?= esc($displayName) ?></span>
+        <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
+      </div>
+    </div>
+  </nav>
       <div class="nav-actions">
         <span class="nav-user-name"><?= esc($displayName) ?></span>
         <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>

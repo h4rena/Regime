@@ -25,11 +25,11 @@ INSERT INTO regime (nom, variation_poids, duree_jours, prix, pourcentage_viande,
 ('Équilibre Total', 0.00, 30, 18000.00, 30, 35, 35),
 ('Programme Gold Premium', -4.00, 45, 75000.00, 25, 45, 30);
 
--- Données de test en Ariary (Ar)
+-- password: test1234567
 INSERT INTO users (id_role, nom, prenom, email, password, genre_id, Date_naissance, wallet_balance, is_gold) VALUES
-(1, 'Admin', 'Test', 'admin@regime.local', '$2y$10$lQ7hXisg5MFqOE.NBWwnaOnZ7XIrSoGIkRksKXFP4kCNyvbDdODKy', 1, '1990-01-01', 250000, 1),
-(2, 'Jean', 'Rakoto', 'jean.rakoto@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 2, '1995-06-15', 125000, 0),
-(2, 'Mina', 'Rasoa', 'mina.rasoa@regime.local', '$2y$10$klxdtGv4bUUbv2liOrynJu9filf92kVduPSI8/n2yPd8VT9VuAIY.', 3, '1998-11-20', 80000, 0);
+(1, 'Admin', 'Test', 'admin@regime.local', '$2y$10$rUKxnBrNAu6O9ScC9JGM.O/zi3/pZ.EZrkU7yLtevVG6cOArfJmTC', 1, '1990-01-01', 250000, 1),
+(2, 'Jean', 'Rakoto', 'jean.rakoto@regime.local', '$2y$10$rUKxnBrNAu6O9ScC9JGM.O/zi3/pZ.EZrkU7yLtevVG6cOArfJmTC.', 2, '1995-06-15', 125000, 0),
+(2, 'Mina', 'Rasoa', 'mina.rasoa@regime.local', '$2y$10$rUKxnBrNAu6O9ScC9JGM.O/zi3/pZ.EZrkU7yLtevVG6cOArfJmTC.', 3, '1998-11-20', 80000, 0);
 
 INSERT INTO wallet (user_id, type, montant) VALUES
 (1, 'gold', 250000),
