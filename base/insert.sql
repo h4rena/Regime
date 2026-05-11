@@ -68,3 +68,55 @@ INSERT INTO wallet_codes (code, montant, is_used, used_by, used_at) VALUES
 ('ELITE25000', 25000, FALSE, NULL, NULL),
 ('VIP50000', 50000, FALSE, NULL, NULL),
 ('SPECIAL75000', 75000, FALSE, NULL, NULL);
+
+-- ═══════════════════════════════════════════════════════════════════════════
+-- DONNÉES SUPPLÉMENTAIRES POUR LE DASHBOARD
+-- ═══════════════════════════════════════════════════════════════════════════
+
+-- Statuts des souscriptions
+INSERT INTO statut (nom) VALUES
+('Actif'),
+('Terminé'),
+('Annulé'),
+('En attente');
+
+-- Données de santé (IMC distribution) - 3 utilisateurs
+INSERT INTO sante (user_id, taille, poids, imc, id_objectif) VALUES
+(2, 1.75, 78, 25.5, 1),  -- Jean: surpoids (25-29.9), objectif: perte de poids
+(3, 1.62, 58, 22.1, 1),  -- Mina: normal (18.5-24.9), objectif: perte de poids
+(1, 1.80, 75, 23.1, 3);  -- Admin: normal, objectif: atteindre imc
+
+-- Souscriptions régimes (multiple souscriptions par utilisateur)
+INSERT INTO user_regime (user_id, regime_id, prix_paye, date_debut, date_fin, statut_id) VALUES
+-- Jean Rakoto (user_id=2) - 3 souscriptions
+(2, 1, 28050, '2026-01-15', '2026-02-14', 2),     -- Régime Équilibré Marin (remise 15% Gold)
+(2, 2, 21000, '2026-02-15', '2026-02-28', 1),     -- Régime Léger Actif
+(2, 3, 26000, '2026-03-01', '2026-03-21', 1),     -- Régime Protéiné Force
+
+-- Mina Rasoa (user_id=3) - 3 souscriptions
+(3, 4, 23000, '2026-01-20', '2026-02-03', 2),     -- Détox Marin Intensif
+(3, 2, 21000, '2026-02-10', '2026-02-23', 1),     -- Régime Léger Actif
+(3, 5, 18000, '2026-03-05', '2026-04-04', 1),     -- Équilibre Total
+
+-- Admin (user_id=1) - 2 souscriptions
+(1, 6, 75000, '2025-12-01', '2026-01-15', 2),     -- Programme Gold Premium
+(1, 1, 33000, '2026-02-01', '2026-03-02', 1);     -- Régime Équilibré Marin
+
+-- Associations régimes-activités (lier les activités aux souscriptions)
+INSERT INTO user_regime_activite (user_regime_id, activite_id) VALUES
+-- Souscription 1 (Jean - Régime Équilibré Marin)
+(1, 1), (1, 2), (1, 5),
+-- Souscription 2 (Jean - Régime Léger Actif)
+(2, 1), (2, 5),
+-- Souscription 3 (Jean - Régime Protéiné Force)
+(3, 4), (3, 1),
+-- Souscription 4 (Mina - Détox Marin Intensif)
+(4, 2), (4, 5),
+-- Souscription 5 (Mina - Régime Léger Actif)
+(5, 1), (5, 3),
+-- Souscription 6 (Mina - Équilibre Total)
+(6, 5), (6, 1),
+-- Souscription 7 (Admin - Programme Gold Premium)
+(7, 1), (7, 2), (7, 4),
+-- Souscription 8 (Admin - Régime Équilibré Marin)
+(8, 2), (8, 3);
