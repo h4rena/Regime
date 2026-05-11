@@ -114,7 +114,11 @@ input, select, textarea, button { font-family: var(--font); }
   display: flex;
   gap: 4px;
   flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.nav-links::-webkit-scrollbar { display: none; }
 .nav-link {
   font-size: 14px;
   font-weight: 400;
@@ -122,6 +126,7 @@ input, select, textarea, button { font-family: var(--font); }
   padding: 6px 16px;
   border-radius: 20px;
   transition: all 0.15s;
+  white-space: nowrap;
 }
 .nav-link:hover { color: white; background: rgba(133,183,235,0.12); }
 .nav-link.active {
@@ -1026,6 +1031,26 @@ input, select, textarea, button { font-family: var(--font); }
   .hero .container { grid-template-columns: 1fr; }
   .profil-grid { grid-template-columns: 1fr; }
   .page-title-row { flex-direction: column; }
+  .nav-inner {
+    gap: 12px;
+    padding: 0 16px;
+  }
+  .nav-logo {
+    font-size: 18px;
+  }
+  .nav-links {
+    gap: 2px;
+  }
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  .nav-user-name {
+    display: none;
+  }
+  .btn-nav-ghost {
+    padding: 6px 12px;
+  }
 }
 
 /* ── ALERTS ────────────────────────────────────────────────── */

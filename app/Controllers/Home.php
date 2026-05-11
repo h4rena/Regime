@@ -9,6 +9,9 @@ use App\Models\UserModel;
 
 class Home extends BaseController
 {
+    private const PDF_PAGE_WIDTH = 595;
+    private const PDF_PAGE_HEIGHT = 842;
+
     private function getProfileData(): array
     {
         $currentUser = session()->get('user');
@@ -72,48 +75,152 @@ class Home extends BaseController
         return $text;
     }
 
+    private function pdfWrapText(string $text, int $maxChars): array
+    {
+        $text = trim(preg_replace('/\s+/', ' ', $text) ?? $text);
+        if ($text === '') {
+            return [''];
+        }
+
+        $words = explode(' ', $text);
+        $lines = [];
+        $current = '';
+
+        foreach ($words as $word) {
+            $candidate = $current === '' ? $word : $current . ' ' . $word;
+
+            if (strlen($candidate) <= $maxChars) {
+                $current = $candidate;
+                continue;
+            }
+
+            if ($current !== '') {
+                $lines[] = $current;
+            }
+
+            if (strlen($word) <= $maxChars) {
+                $current = $word;
+                continue;
+            }
+
+            $chunks = str_split($word, $maxChars);
+            $current = array_pop($chunks) ?: '';
+
+            foreach ($chunks as $chunk) {
+                $lines[] = $chunk;
+            }
+        }
+
+        if ($current !== '') {
+            $lines[] = $current;
+        }
+
+        return $lines;
+    }
+
+    private function pdfBuildTextStream(array $lines, int $fontSize = 10, int $leading = 14, int $startX = 0, int $startY = 0): string
+    {
+        $stream = "BT\n/F1 {$fontSize} Tf\n{$leading} TL\n{$startX} {$startY} Td\n";
+
+        foreach ($lines as $index => $line) {
+            $escaped = $this->normalizePdfText((string) $line);
+            $stream .= ($index === 0 ? '' : "T*\n") . '(' . $escaped . ") Tj\n";
+        }
+
+        $stream .= "ET\n";
+
+        return $stream;
+    }
+
+    private function pdfAddCell(array &$lines, int $x, int $y, int $width, int $height, string $label, string $value): void
+    {
+        $labelLines = $this->pdfWrapText($label, 20);
+        $valueLines = $this->pdfWrapText($value, 28);
+
+        $lines[] = sprintf('0.95 0.97 1 rg %d %d %d %d re f', $x, $y, $width, $height);
+        $lines[] = sprintf('0.82 0.88 0.96 RG %d %d %d %d re S', $x, $y, $width, $height);
+        $lines[] = '0 0 0 rg';
+        $lines[] = 'BT /F1 8 Tf 10 TL ' . ($x + 10) . ' ' . ($y + $height - 18) . ' Td (' . $this->normalizePdfText($labelLines[0] ?? $label) . ') Tj ET';
+
+        $valueY = $y + $height - 34;
+        foreach ($valueLines as $index => $line) {
+            $lines[] = 'BT /F1 11 Tf 13 TL ' . ($x + 10) . ' ' . ($valueY - ($index * 13)) . ' Td (' . $this->normalizePdfText($line) . ') Tj ET';
+        }
+    }
+
     private function buildProfilePdf(array $profileData): string
     {
         $user = $profileData['user'] ?? [];
         $sante = $profileData['sante'] ?? [];
         $regimes = $profileData['regimes'] ?? [];
+        $today = new \DateTimeImmutable('today');
 
         $displayName = trim(($user['prenom'] ?? '') . ' ' . ($user['nom'] ?? ''));
         $displayName = $displayName !== '' ? $displayName : 'Utilisateur';
 
-        $lines = [
-            'NutriPlan - Fiche profil',
-            'Nom : ' . $displayName,
-            'Email : ' . (string) ($user['email'] ?? '—'),
-            'Genre : ' . (string) ($user['genre_nom'] ?? '—'),
-            'Age : ' . (string) ($user['age'] ?? '—') . ' ans',
-            'IMC : ' . ((string) ($user['imc'] ?? '—')),
-            'Poids : ' . (string) ($sante['poids'] ?? '—') . ' kg',
-            'Taille : ' . (string) ($sante['taille'] ?? '—') . ' cm',
-            'Wallet : ' . number_format((float) ($user['wallet_balance'] ?? 0), 0, ',', ' ') . ' Ar',
-            'Gold : ' . (! empty($user['is_gold']) ? 'Actif' : 'Non'),
-            'Programmes recents',
-        ];
+        $pageCommands = [];
 
+        $headerY = self::PDF_PAGE_HEIGHT - 126;
+        $pageCommands[] = sprintf('0.06 0.17 0.32 rg 32 %d 531 88 re f', $headerY);
+        $pageCommands[] = 'BT /F1 24 Tf 28 TL 52 ' . ($headerY + 52) . ' Td (NutriPlan) Tj ET';
+        $pageCommands[] = 'BT /F1 15 Tf 18 TL 52 ' . ($headerY + 30) . ' Td (Fiche profil PDF) Tj ET';
+        $pageCommands[] = 'BT /F1 10 Tf 12 TL 52 ' . ($headerY + 12) . ' Td (Document generate automatiquement pour le suivi du programme) Tj ET';
+        $pageCommands[] = 'BT /F1 10 Tf 12 TL 450 ' . ($headerY + 52) . ' Td (' . $this->normalizePdfText($today->format('d/m/Y')) . ') Tj ET';
+        $pageCommands[] = 'BT /F1 10 Tf 12 TL 450 ' . ($headerY + 34) . ' Td (Profil #' . (int) ($user['id'] ?? 0) . ') Tj ET';
+
+        $pageCommands[] = 'BT /F1 16 Tf 20 TL 32 670 Td (Informations personnelles) Tj ET';
+        $this->pdfAddCell($pageCommands, 32, 595, 245, 62, 'Nom complet', $displayName);
+        $this->pdfAddCell($pageCommands, 288, 595, 245, 62, 'Email', (string) ($user['email'] ?? '—'));
+        $this->pdfAddCell($pageCommands, 32, 522, 114, 56, 'Age', (string) ($user['age'] ?? '—') . ' ans');
+        $this->pdfAddCell($pageCommands, 153, 522, 114, 56, 'Genre', (string) ($user['genre_nom'] ?? '—'));
+        $this->pdfAddCell($pageCommands, 274, 522, 114, 56, 'IMC', (string) ($user['imc'] ?? '—'));
+        $this->pdfAddCell($pageCommands, 395, 522, 138, 56, 'Statut Gold', ! empty($user['is_gold']) ? 'Actif' : 'Non');
+
+        $pageCommands[] = 'BT /F1 16 Tf 20 TL 32 472 Td (Bilan de sante) Tj ET';
+        $this->pdfAddCell($pageCommands, 32, 401, 114, 56, 'Poids', (string) ($sante['poids'] ?? '—') . ' kg');
+        $this->pdfAddCell($pageCommands, 153, 401, 114, 56, 'Taille', (string) ($sante['taille'] ?? '—') . ' cm');
+        $this->pdfAddCell($pageCommands, 274, 401, 114, 56, 'Wallet', number_format((float) ($user['wallet_balance'] ?? 0), 0, ',', ' ') . ' Ar');
+        $this->pdfAddCell($pageCommands, 395, 401, 138, 56, 'Objectif', (string) ($sante['objectif_nom'] ?? 'Suivi du programme'));
+
+        $pageCommands[] = 'BT /F1 16 Tf 20 TL 32 347 Td (Programmes recents) Tj ET';
+        $pageCommands[] = '0.82 0.88 0.96 rg 32 315 499 24 re f';
+        $pageCommands[] = '0.82 0.88 0.96 RG 32 315 499 24 re S';
+        $pageCommands[] = 'BT /F1 9 Tf 11 TL 42 323 Td (Regime) Tj ET';
+        $pageCommands[] = 'BT /F1 9 Tf 11 TL 330 323 Td (Duree) Tj ET';
+        $pageCommands[] = 'BT /F1 9 Tf 11 TL 400 323 Td (Prix) Tj ET';
+        $pageCommands[] = 'BT /F1 9 Tf 11 TL 470 323 Td (Ordre) Tj ET';
+
+        $rowTop = 292;
+        $rowIndex = 0;
         foreach ($regimes as $regime) {
-            $lines[] = '- ' . (string) ($regime['nom'] ?? 'Régime') . ' | ' . (string) ($regime['duree_jours'] ?? '0') . ' jours | ' . number_format((float) ($regime['prix'] ?? 0), 0, ',', ' ') . ' Ar';
+            if ($rowTop < 96) {
+                break;
+            }
+
+            $fill = $rowIndex % 2 === 0 ? '0.97 0.98 1 rg' : '1 1 1 rg';
+            $pageCommands[] = sprintf('%s 32 %d 499 28 re f', $fill, $rowTop);
+            $pageCommands[] = sprintf('0.88 0.92 0.97 RG 32 %d 499 28 re S', $rowTop);
+            $pageCommands[] = 'BT /F1 9 Tf 11 TL 42 ' . ($rowTop + 16) . ' Td (' . $this->normalizePdfText((string) ($regime['nom'] ?? 'Régime')) . ') Tj ET';
+            $pageCommands[] = 'BT /F1 9 Tf 11 TL 330 ' . ($rowTop + 16) . ' Td (' . $this->normalizePdfText((string) ($regime['duree_jours'] ?? '0') . ' jours') . ') Tj ET';
+            $pageCommands[] = 'BT /F1 9 Tf 11 TL 400 ' . ($rowTop + 16) . ' Td (' . $this->normalizePdfText(number_format((float) ($regime['prix'] ?? 0), 0, ',', ' ') . ' Ar') . ') Tj ET';
+            $pageCommands[] = 'BT /F1 9 Tf 11 TL 470 ' . ($rowTop + 16) . ' Td (#' . ($rowIndex + 1) . ') Tj ET';
+            $rowTop -= 30;
+            $rowIndex++;
         }
 
-        $contentLines = [];
-        foreach ($lines as $line) {
-            $contentLines[] = $this->normalizePdfText($line);
+        if ($rowIndex === 0) {
+            $pageCommands[] = 'BT /F1 10 Tf 12 TL 42 270 Td (Aucun regime recent disponible) Tj ET';
         }
 
-        $content = "BT\n/F1 12 Tf\n14 TL\n50 800 Td\n";
-        foreach ($contentLines as $index => $line) {
-            $content .= ($index === 0 ? '' : 'T*\n') . '(' . $line . ") Tj\n";
-        }
-        $content .= "ET\n";
+        $pageCommands[] = 'BT /F1 8 Tf 10 TL 32 52 Td (NutriPlan - export profil) Tj ET';
+        $pageCommands[] = 'BT /F1 8 Tf 10 TL 480 52 Td (Page 1/1) Tj ET';
+
+        $content = implode("\n", $pageCommands) . "\n";
 
         $objects = [];
         $objects[] = "1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n";
         $objects[] = "2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n";
-        $objects[] = "3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>\nendobj\n";
+        $objects[] = "3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " . self::PDF_PAGE_WIDTH . ' ' . self::PDF_PAGE_HEIGHT . "] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>\nendobj\n";
         $objects[] = "4 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n";
         $objects[] = "5 0 obj\n<< /Length " . strlen($content) . " >>\nstream\n" . $content . "endstream\nendobj\n";
 

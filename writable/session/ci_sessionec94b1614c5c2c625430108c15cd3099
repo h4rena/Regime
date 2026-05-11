@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1778501162;_ci_previous_url|s:33:"http://localhost:8080/inscription";inscription_step1|a:6:{s:3:"nom";s:4:"test";s:6:"prenom";s:4:"test";s:5:"email";s:14:"test@gmail.com";s:8:"password";s:60:"$2y$10$DSb.jLwx68QRSs5Kmo982OgB0HW055.gUzMsoiBU2uejmY5MSNOky";s:8:"genre_id";i:2;s:14:"Date_naissance";s:10:"2000-05-16";}

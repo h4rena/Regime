@@ -74,12 +74,6 @@ if (! empty($signupSeries)) {
       </div>
     </div>
   </nav>
-      <div class="nav-actions">
-        <span class="nav-user-name"><?= esc($displayName) ?></span>
-        <a href="<?= base_url('/deconnexion') ?>" class="btn-nav-ghost">Déconnexion</a>
-      </div>
-    </div>
-  </nav>
 
   <main class="page-main">
     <div class="container">
